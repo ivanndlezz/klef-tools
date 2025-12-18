@@ -16,6 +16,7 @@
   --accent: #007aff; /* Azul acento Apple para botones/links */
   --klef-green: #34c759; /* Verde Klef para éxito/tags */
   --klef-soft-green: rgba(52, 199, 89, 0.1); /* Verde suave para fondos */
+  --klef-soft-blue: rgba(2, 108, 230, 0.1);
 
   /* Colores adicionales */
   --klef-accent-blue: #007aff; /* Azul agencia */
@@ -353,8 +354,7 @@ button {
   border-radius: var(--radius-sm);
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition-base),
-    transform var(--transition-fast);
+  transition: all var(--transition-base), transform var(--transition-fast);
   font-family: inherit;
 }
 

@@ -1,0 +1,518 @@
+/* ===========================================
+   ESQUEMA DE DISEÑO UI - KLEF TOOL SET
+   ===========================================
+
+   Sistema de diseño global para consistencia en colores, tamaños, textos,
+   botones, layouts e interactividad. Tema oscuro, Apple-like, minimalista.
+*/
+
+:root {
+  /* Paleta de colores principal (tema claro) */
+  --bg: #ffffff; /* Fondo principal - blanco */
+  --panel: #f5f5f7; /* Paneles secundarios - gris muy claro */
+  --card: #ffffff; /* Tarjetas/contenedores - blanco */
+  --text: #1d1d1f; /* Texto principal - negro suave */
+  --muted: #6e6e73; /* Texto secundario - gris */
+  --accent: #007aff; /* Azul acento Apple para botones/links */
+  --klef-green: #34c759; /* Verde Klef para éxito/tags */
+  --klef-soft-green: rgba(52, 199, 89, 0.1); /* Verde suave para fondos */
+
+  /* Colores adicionales */
+  --klef-accent-blue: #007aff; /* Azul agencia */
+  --klef-danger-red: #ff3b30; /* Rojo para acentos */
+
+  /* Bordes y separadores */
+  --border: #e5e5ea; /* Bordes sutiles */
+  --border-hover: #d1d1d6; /* Bordes en hover */
+
+  /* Redondez consistente */
+  --radius: 16px; /* Radio base para elementos principales */
+  --radius-sm: 12px; /* Radio pequeño para inputs/botones */
+  --radius-lg: 20px; /* Radio grande para sheets/modales */
+  --radius-xs: 4px; /* Radio mínimo para badges */
+
+  /* Sombras */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1); /* Hover tarjetas */
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.05); /* Mega menus */
+
+  /* Espaciado */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+}
+
+a {
+  all: unset;
+  text-decoration: none !important;
+  color: unset;
+}
+
+.klef-footer {
+  padding: 16px 20px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #6e6e73;
+  margin: 1rem;
+  background: var(--gray-200);
+  border-radius: 12px;
+}
+
+.footer-text {
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.footer-text strong {
+  font-weight: 600;
+}
+
+.footer-text .by {
+  margin: 0 4px;
+}
+
+.footer-text .divider {
+  margin: 0 6px;
+  color: #c7c7cc;
+}
+
+.heart {
+  color: #ff3b30; /* Apple red */
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 0px;
+  padding: 2px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  font-weight: 500;
+  line-height: 1;
+  vertical-align: middle;
+  margin-top: -2px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tag.green {
+  background: var(--klef-green);
+  color: #fcfffd;
+}
+
+.agency {
+  text-decoration: none;
+  color: rgb(2, 108, 230);
+}
+
+/*
+Klef Tool Set — Global Design System
+Archivo: global/document.css
+Propósito: Lenguaje visual, estructura y componentes base
+Filosofía: claro, humano, modular, duradero
+*/
+
+/* =====================================================
+
+1. DESIGN TOKENS — IDENTIDAD KLEF
+   ===================================================== */
+
+:root {
+  /* Brand */
+  --klef-green: #268642;
+  --klef-soft-green: rgba(52, 199, 89, 0.12);
+  --klef-accent-blue: rgb(2, 108, 230);
+  --klef-danger-red: #ff3b30;
+
+  /* Neutrals (Apple-like) */
+  --gray-100: #f5f5f7;
+  --gray-200: #e5e5ea;
+  --gray-300: #d1d1d6;
+  --gray-400: #c7c7cc;
+  --gray-500: #aeaeb2;
+  --gray-600: #8e8e93;
+  --gray-700: #6e6e73;
+  --gray-800: #3a3a3c;
+  --gray-900: #1c1c1e;
+
+  /* Backgrounds */
+  --bg-primary: #0f0f11;
+  --bg-secondary: #1c1c1e;
+  --bg-elevated: #2c2c2e;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: var(--gray-700);
+  --text-muted: var(--gray-600);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 120ms var(--ease-standard);
+  --transition-base: 220ms var(--ease-standard);
+}
+
+/* =====================================================
+2. RESET Y BASE
+===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================================================
+3. TIPOGRAFÍA BASE
+===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--space-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 var(--space-md);
+  color: var(--text-secondary);
+}
+
+small {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+4. LAYOUT Y RITMO
+===================================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+/* =====================================================
+5. COMPONENTES BASE
+===================================================== */
+
+/* Footer Klef * /
+
+.klef-footer {
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-700);
+  background: transparent;
+}*/
+
+.footer-text {
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.footer-text strong {
+  font-weight: 600;
+}
+
+.footer-text .by {
+  margin: 0 4px;
+}
+
+.footer-text .divider {
+  margin: 0 6px;
+  color: var(--gray-400);
+}
+
+.heart {
+  color: var(--klef-danger-red);
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+/* Tags */
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 13px;
+  border-radius: var(--radius-xs);
+  font-weight: 500;
+  line-height: 1;
+  vertical-align: middle;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tag.green {
+  background: var(--klef-green);
+  color: #fcfffd;
+}
+
+/* Links */
+
+footer a.agency {
+  color: var(--klef-accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   TIPOGRAFÍA DETALLADA
+   ===================================================== */
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 var(--space-sm);
+  color: var(--text);
+}
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 var(--space-sm);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 var(--space-sm);
+  color: var(--text);
+}
+p {
+  font-size: 1.1rem;
+  margin: 0 0 var(--space-md);
+  color: var(--text);
+}
+.text-small {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.text-xs {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* =====================================================
+   BOTONES
+   ===================================================== */
+
+button {
+  background: var(--accent);
+  border: none;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-base),
+    transform var(--transition-fast);
+  font-family: inherit;
+}
+
+button:hover {
+  background: var(--gray-200);
+  transform: translateY(-1px);
+}
+
+.btn-cta {
+  background: var(--accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.btn-cta:hover {
+  background: #3a8cff;
+}
+
+/* =====================================================
+   TARJETAS Y CONTENEDORES
+   ===================================================== */
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base), border-color var(--transition-base);
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--accent);
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+/* =====================================================
+   LAYOUTS
+   ===================================================== */
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .apps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .apps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =====================================================
+   FORMULARIOS
+   ===================================================== */
+
+input:not([type="color"]),
+textarea,
+select {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(77, 163, 255, 0.2);
+}
+
+/* =====================================================
+   ANIMACIONES
+   ===================================================== */
+
+.skeleton-bar {
+  height: 40px;
+  background: #e5e5ea;
+  border-radius: var(--radius-sm);
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+6. ESTADOS E INTERACCIONES
+===================================================== */
+
+.interactive {
+  transition: transform var(--transition-fast),
+    background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.interactive:hover {
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+7. UTILIDADES SUAVES
+===================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.hidden {
+  display: none !important;
+}

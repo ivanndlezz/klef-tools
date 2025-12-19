@@ -10,5 +10,7 @@ document.querySelector("#close-ham").addEventListener("click", function () {
 */
 
 function toggleMenu() {
-  document.querySelector(".mega-menu").classList.remove("open");
+  document.querySelector(".mega-menu").classList.toggle("open");
 }
+
+console.log("is loaded");

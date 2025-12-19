@@ -46,7 +46,6 @@
 }
 
 .menu-item:hover .mega-panel {
-  content: "";
   display: flex;
 }
 

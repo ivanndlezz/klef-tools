@@ -1,131 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Klef Tool Set</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link rel="stylesheet" href="global/styles.css" />
     <link rel="stylesheet" href="components/mega-menu.css" />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/global/root.css"
+    />
     <script src="utilities/ui-composer.js"></script>
-
-    <style>
-      :root {
-        --bg-main: #f9f9fb;
-        --bg-surface: #ffffff;
-        --bg-muted: #f1f2f4;
-        --text-main: #1c1d1f;
-        --text-muted: #6e6e73;
-        --accent: #268642;
-        --accent-soft: rgba(38, 134, 66, 0.12);
-        --radius: 14px;
-        --border-soft: rgba(0, 0, 0, 0.08);
-        --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-          "Helvetica Neue", Arial, sans-serif;
-        background: var(--bg-main);
-        color: var(--text-main);
-        height: 105vh;
-        display: flex;
-        flex-direction: column;
-      }
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: var(--bg-surface);
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .bar {
-        max-width: 1100px;
-        margin: auto;
-        padding: 16px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      button {
-        background: none;
-        border: 0;
-        color: inherit;
-        cursor: pointer;
-        font-size: 15px;
-      }
-      .hero {
-        max-width: 820px;
-        margin: 4rem auto 3rem;
-        padding: 0 20px;
-        text-align: center;
-      }
-      .hero h1 {
-        font-size: 2.6rem;
-        margin-bottom: 0.75rem;
-        letter-spacing: -0.02em;
-      }
-      .hero p {
-        font-size: 1.05rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-      .tools {
-        max-width: 1100px;
-        margin: auto;
-        padding: 0 20px 4rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-      }
-      .card {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-soft);
-        border-radius: var(--radius);
-        padding: 22px;
-        box-shadow: var(--shadow-soft);
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        text-decoration: none;
-        color: inherit;
-      }
-      .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-      }
-      .card small {
-        color: var(--accent);
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        font-size: 0.7rem;
-      }
-      .card h3 {
-        margin: 0;
-        font-size: 1.2rem;
-      }
-      .card p {
-        margin: 0;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.5;
-        flex: 1;
-      }
-      .card span {
-        align-self: flex-start;
-        margin-top: 6px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        font-size: 0.85rem;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-weight: 500;
-      }
-    </style>
   </head>
   <svg id="sprite" class="hidden" xmlns="http://www.w3.org/2000/svg">
     <symbol id="icon-globe" viewBox="0 0 24 24">
@@ -290,7 +175,7 @@
     </symbol>
   </svg>
   <body>
-    <header id="header" class="cssapp-header">
+    <header class="cssapp-header">
       <div class="header-left">
         <a href="#" class="logo">
           <div class="logo-icon">
@@ -471,61 +356,15 @@
         GitHub
       </a>
     </header>
-
-    <section class="hero">
-      <h1>Herramientas simples para construir interfaces reales</h1>
-      <p>
-        Klef Tool Set es un conjunto de utilidades UI hechas con tecnologías
-        básicas (HTML, CSS, JS, JSON y SVG). Sin frameworks, sin capas
-        innecesarias. Pensado para crear productos modernos, claros y
-        mantenibles.
-      </p>
-    </section>
-
-    <section class="tools">
-      <a class="card" href="apps/svg-symbol-creator/">
-        <small>Tool</small>
-        <h3>SVG Symbol Creator</h3>
-        <p>
-          Crea, edita y organiza bibliotecas de símbolos SVG reutilizables con
-          exportación en JSON.
-        </p>
-        <span>Abrir herramienta</span>
-      </a>
-
-      <a class="card" href="apps/modular-creatio-playground/">
-        <small>Playground</small>
-        <h3>Modular Creatio</h3>
-        <p>
-          Experimenta con composición declarativa HTML + JSON y carga asíncrona
-          sin frameworks.
-        </p>
-        <span>Abrir playground</span>
-      </a>
-
-      <a class="card" href="apps/mega-menu/">
-        <small>Component</small>
-        <h3>Mega Menu</h3>
-        <p>
-          Ejemplo de navegación compleja y escalable construida con templates y
-          datos.
-        </p>
-        <span>Ver demo</span>
-      </a>
-    </section>
   </body>
-  <footer>
-    <div class="klef-footer">
-      <p class="footer-text">
-        Made with <span class="heart">♥</span> in Los Cabos
-        <span class="by">by</span>
-        <strong>Klef</strong>
-        <small class="tag green">Dev</small>
-        <span class="divider">|</span>
-        <a href="https://klef.agency/" class="agency" target="_blank"
-          >Klef Agency</a
-        >
-      </p>
-    </div>
-  </footer>
+  <script>
+    // Toggle simple del menú móvil
+    document.querySelector(".hamburger").addEventListener("click", function () {
+      document.querySelector(".mega-menu").classList.toggle("open");
+    });
+
+    document.querySelector("#close-ham").addEventListener("click", function () {
+      document.querySelector(".mega-menu").classList.remove("open");
+    });
+  </script>
 </html>

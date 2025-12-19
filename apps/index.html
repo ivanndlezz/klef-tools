@@ -4,8 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Klef Tool Set - App Directory</title>
-    <link rel="stylesheet" href="../global/styles.css" />
-    <link rel="stylesheet" href="../components/mega-menu.css" />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/global/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/global/root.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/components/mega-menu.css"
+    />
+    <script src="https://ivanndlezz.github.io/klef-tools/global/script.js"></script>
     <style>
       .header {
         text-align: center;
@@ -301,12 +312,32 @@
     </symbol>
   </svg>
   <body>
-     <header >
-      <!-- aquí se renderiza el mega menu -->
+    <header class="cssapp-header">
+      <div class="header-left">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <svg>
+              <use href="#icon-code"></use>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Klef Apps</span>
+            <span class="logo-subtitle">Tool Library</span>
+          </div>
+        </a>
+      </div>
       <nav class="mega-menu">
         <ul class="menu-root">
+          <li class="menu-item top-controls mobile">
+            <!--  button>Go Back</button -->
+            <button id="close-ham" onclick="toggleMenu();">Close</button>
+          </li>
           <li class="menu-item">
-            <a data-attr-href="url" class="menu-trigger button" href="/klef-tools/">
+            <a
+              data-attr-href="url"
+              class="menu-trigger button"
+              href="https://ivanndlezz.github.io/klef-tools/"
+            >
               <svg class="icon" width="16" height="16">
                 <use data-attr-href="icon" href="#icon-home"></use>
               </svg>
@@ -326,7 +357,10 @@
                 <h4 data-bind="title">Directorio</h4>
                 <ul>
                   <li>
-                    <a data-attr-href="url" href="/klef-tools/apps/">
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/"
+                    >
                       <svg class="icon" width="14" height="14">
                         <use data-attr-href="icon" href="#icon-globe"></use>
                       </svg>
@@ -339,7 +373,10 @@
                 <h4 data-bind="title">Herramientas</h4>
                 <ul>
                   <li>
-                    <a data-attr-href="url" href="/klef-tools/apps/svg-symbol-creator/">
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/svg-symbol-creator/"
+                    >
                       <svg class="icon" width="14" height="14">
                         <use data-attr-href="icon" href="#icon-paint"></use>
                       </svg>
@@ -349,7 +386,7 @@
                   <li>
                     <a
                       data-attr-href="url"
-                      href="/klef-tools/apps/modular-creatio-playground/"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/modular-creatio-playground/"
                     >
                       <svg class="icon" width="14" height="14">
                         <use
@@ -361,7 +398,10 @@
                     </a>
                   </li>
                   <li>
-                    <a data-attr-href="url" href="/klef-tools/apps/mega-menu/">
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/mega-menu/"
+                    >
                       <svg class="icon" width="14" height="14">
                         <use
                           data-attr-href="icon"
@@ -390,7 +430,7 @@
                   <li>
                     <a
                       data-attr-href="url"
-                      href="../../docs/ux-ui-architecture-principles.md"
+                      href="https://ivanndlezz.github.io/klef-tools/docs/ux-ui-architecture-principles.html"
                     >
                       <svg class="icon" width="14" height="14">
                         <use data-attr-href="icon" href="#icon-code"></use>
@@ -399,7 +439,10 @@
                     </a>
                   </li>
                   <li>
-                    <a data-attr-href="url" href="../../docs/about-styles.md">
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/docs/about-styles.html"
+                    >
                       <svg class="icon" width="14" height="14">
                         <use data-attr-href="icon" href="#icon-paint"></use>
                       </svg>
@@ -411,7 +454,48 @@
             </div>
           </li>
         </ul>
+        <a
+          href="https://ivanndlezz.github.io/klef-tools/"
+          class="nav-link github-btn mobile"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            ></path>
+          </svg>
+          GitHub
+        </a>
       </nav>
+      <button
+        class="hamburger"
+        aria-label="Toggle menu"
+        onclick="toggleMenu();"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a
+        href="https://ivanndlezz.github.io/klef-tools/"
+        class="nav-link github-btn desktop"
+        style="cursor: pointer"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+        GitHub
+      </a>
     </header>
     <div class="header">
       <h1>Klef Tool Set</h1>

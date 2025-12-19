@@ -1,6 +1,6 @@
 .mega-menu {
   background: #fff;
-  border-bottom: 1px solid #e5e5ea;
+
   font-family: -apple-system, BlinkMacSystemFont, system-ui;
   display: flex;
   padding: 0 var(--space-6);
@@ -340,6 +340,7 @@
   -webkit-backdrop-filter: blur(24px);
   min-height: 4rem;
   padding: 0 var(--space-6);
+  border-bottom: 1px solid #e5e5ea;
 }
 
 .header-left {

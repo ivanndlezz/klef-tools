@@ -16,7 +16,10 @@
       rel="stylesheet"
       href="https://ivanndlezz.github.io/klef-tools/components/mega-menu.css"
     />
-    <script type="application/javascript" src="../../global/script.js"></script>
+    <script
+      type="application/javascript"
+      src="https://ivanndlezz.github.io/klef-tools/global/script.js"
+    ></script>
     <style>
       :root {
         --bg: #ffffff;
@@ -334,7 +337,7 @@
         <ul class="menu-root">
           <li class="menu-item top-controls mobile">
             <!--  button>Go Back</button -->
-            <button id="close-ham">Close</button>
+            <button id="close-ham" onclick="toggleMenu();">Close</button>
           </li>
           <li class="menu-item">
             <a
@@ -470,7 +473,11 @@
           GitHub
         </a>
       </nav>
-      <button class="hamburger" aria-label="Toggle menu">
+      <button
+        class="hamburger"
+        aria-label="Toggle menu"
+        onclick="toggleMenu();"
+      >
         <svg
           width="24"
           height="24"

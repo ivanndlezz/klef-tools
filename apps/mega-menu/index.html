@@ -4,11 +4,20 @@
     <meta charset="UTF-8" />
     <title>Mega Menu · UI Composer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../../global/styles.css" />
-    <link rel="stylesheet" href="../../components/mega-menu.css" />
-    <link rel="stylesheet" href="../../global/root.css" />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/global/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/components/mega-menu.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ivanndlezz.github.io/klef-tools/global/root.css"
+    />
     <!-- UI Composer -->
-    <script src="../../utilities/ui-composer.js"></script>
+    <script src="https://ivanndlezz.github.io/klef-tools/utilities/ui-composer.js"></script>
     <style>
       body {
         display: flex;
@@ -224,19 +233,8 @@
     <!-- ===================== -->
     <template id="mega-menu-template">
       <nav class="mega-menu">
-        <div class="header-left">
-          <a href="#" class="logo">
-            <div class="logo-icon">
-              <svg>
-                <use href="#icon-code"></use>
-              </svg>
-            </div>
-            <div class="logo-text">
-              <span class="logo-title">Klef Apps</span>
-              <span class="logo-subtitle">Tool Library</span>
-            </div>
-          </a>
-        </div>
+        
+        
         <ul class="menu-root">
           <li data-repeat="top-links" class="menu-item">
             <a data-attr-href="url" class="menu-trigger button">
@@ -271,18 +269,7 @@
             </div>
           </li>
         </ul>
-        <div class="nav">
-          <a
-            href="https://github.com/ivanndlezz/klef-tools/tree/main"
-            class="nav-link github-btn"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-              ></path>
-            </svg>
-            GitHub
-          </a>
+        
         </div>
       </nav>
     </template>
@@ -304,7 +291,7 @@
         "top-links": [
           {
             "text": "Home",
-            "url": "/klef-tools/",
+            "url": "https://ivanndlezz.github.io/klef-tools/",
             "icon": "#icon-home"
           }
         ],
@@ -319,7 +306,7 @@
                 "links": [
                   {
                     "text": "Lista de apps",
-                    "url": "/klef-tools/apps/",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/",
                     "icon": "#icon-globe"
                   }
                 ]
@@ -329,17 +316,17 @@
                 "links": [
                   {
                     "text": "SVG Symbol Creator",
-                    "url": "/klef-tools/apps/svg-symbol-creator/",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/svg-symbol-creator/",
                     "icon": "#icon-paint"
                   },
                   {
                     "text": "Modular Creatio Playground",
-                    "url": "/klef-tools/apps/modular-creatio-playground/",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/modular-creatio-playground/",
                     "icon": "#icon-star-sparks"
                   },
                   {
                     "text": "Mega Menu Demo",
-                    "url": "/klef-tools/apps/mega-menu/",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/mega-menu/",
                     "icon": "#icon-stacked-list"
                   }
                 ]
@@ -356,12 +343,12 @@
                 "links": [
                   {
                     "text": "Principios UX/UI",
-                    "url": "../../docs/ux-ui-architecture-principles.md",
+                    "url": "https://ivanndlezz.github.io/klef-tools/docs/ux-ui-architecture-principles.html",
                     "icon": "#icon-code"
                   },
                   {
                     "text": "Acerca de Estilos",
-                    "url": "../../docs/about-styles.md",
+                    "url": "https://ivanndlezz.github.io/klef-tools/docs/about-styles.html",
                     "icon": "#icon-paint"
                   }
                 ]
@@ -382,6 +369,15 @@
         target: "#header",
         skeleton: "#mega-menu-skeleton",
       });
+
+      // Mobile menu toggle
+      const toggle = document.querySelector(".mobile-menu-toggle");
+      const menu = document.querySelector(".menu-root");
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
     </script>
   </body>
   <footer>

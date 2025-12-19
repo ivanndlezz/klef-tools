@@ -2,6 +2,8 @@
 
 Este documento define el esquema de diseño para mantener consistencia visual en todas las páginas y componentes del proyecto Klef Tool Set. Incluye colores, tamaños, tipografía, botones, layouts y principios de diseño.
 
+[![Ver en GitHub](https://img.shields.io/badge/GitHub-Ver%20archivo-black?logo=github)](https://github.com/ivanndlezz/klef-tools/blob/main/docs/about-styles.md)
+
 ## Colores
 
 ### Paleta Principal (Tema Oscuro)

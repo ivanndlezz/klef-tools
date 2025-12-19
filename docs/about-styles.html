@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Markdown Viewer</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        line-height: 1.6;
+      }
+      pre {
+        background: #f5f5f5;
+        padding: 12px;
+        overflow: auto;
+      }
+      code {
+        background: #eee;
+        padding: 2px 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">Cargando...</div>
+
+    <script type="module">
+      import { marked } from "https://cdn.jsdelivr.net/npm/marked/+esm";
+
+      const url =
+        "https://ivanndlezz.github.io/klef-tools/docs/about-styles.md";
+
+      const res = await fetch(url);
+      const markdown = await res.text();
+
+      document.getElementById("content").innerHTML = marked(markdown);
+    </script>
+  </body>
+</html>

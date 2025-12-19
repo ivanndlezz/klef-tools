@@ -2,7 +2,7 @@
 
 ## Principios de Experiencia Humana, Interfaz y Arquitectura en Klef Tool Set
 
----
+## [![Ver en GitHub](https://img.shields.io/badge/GitHub-Ver%20archivo-black?logo=github)](https://github.com/ivanndlezz/klef-tools/blob/main/docs/ux-ui-architecture-principles.md)
 
 ## Visión General
 

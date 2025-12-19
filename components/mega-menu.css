@@ -149,7 +149,7 @@
   .menu-root {
     flex-direction: column;
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 0;
     right: 0;
     background: #fff;
@@ -159,9 +159,11 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     gap: 8px;
     z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.03, 0.42, 0.44, 1.17);
   }
 
   .menu-root.open {
+    transform: translate(0px, 100%) scale(1);
     display: flex;
   }
 

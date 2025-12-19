@@ -44,10 +44,6 @@
   padding-right: 40px;
 }
 
-.menu-item:hover .mega-panel {
-  display: flex;
-}
-
 .mega-column h4 {
   margin: 0 0 8px;
   font-size: 13px;

@@ -433,8 +433,8 @@
        ============================================ */
 
 /* Buttons */
-.btn {
-  display: inline-flex;
+.component-preview .btn {
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -445,6 +445,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  width: -webkit-fill-available;
 }
 
 .btn:active {
@@ -568,16 +569,18 @@
   color: #1d1d1f;
 }
 
-.input {
-  height: 2.75rem;
-  padding: 0 1rem;
-  font-size: 1rem;
-  border: 1px solid #d2d2d7;
-  border-radius: 0.75rem;
-  background: white;
-  color: #1d1d1f;
+/*
+.component-preview .input,
+.modal-preview .input {
+  height: 2.75rem !important;
+  padding: 0 1rem !important;
+  font-size: 1rem !important;
+  border: 1px solid #d2d2d7 !important;
+  border-radius: 0.75rem !important;
+  background: white !important;
+  color: #1d1d1f !important;
   transition: all 0.2s ease;
-}
+}*/
 
 .input:focus {
   outline: none;
@@ -595,34 +598,34 @@
   margin-top: 0.25rem;
 }
 
-.input-error {
-  border-color: #ff3b30;
+.component-preview .input-error {
+  border-color: #ff3b30 !important;
 }
 
 .input-error:focus {
-  border-color: #ff3b30;
-  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.2);
+  border-color: #ff3b30 !important;
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.2) !important;
 }
 
 .input-error-text {
-  font-size: 0.75rem;
-  color: #ff3b30;
-  margin-top: 0.25rem;
+  font-size: 0.75rem !important;
+  color: #ff3b30 !important;
+  margin-top: 0.25rem !important;
 }
 
 .input-success {
-  border-color: #34c759;
+  border-color: #34c759 !important;
 }
 
 .input-success:focus {
-  border-color: #34c759;
-  box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.2);
+  border-color: #34c759 !important;
+  box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.2) !important;
 }
 
 .input-success-text {
-  font-size: 0.75rem;
-  color: #34c759;
-  margin-top: 0.25rem;
+  font-size: 0.75rem !important;
+  color: #34c759 !important;
+  margin-top: 0.25rem !important;
 }
 
 .input:disabled {

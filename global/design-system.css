@@ -58,8 +58,8 @@
   --color-overlay-light: rgba(0, 0, 0, 0.2);
 
   /* === Typography === */
-  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-    "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    Roboto, sans-serif;
   --font-family-mono: "SF Mono", Monaco, "Cascadia Code", "Courier New",
     monospace;
 
@@ -117,9 +117,9 @@
 
   /* === Border Radius === */
   --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-sm: 16px;
+  --radius-md: 18px;
+  --radius-lg: 20px;
   --radius-xl: 24px;
   --radius-2xl: 32px;
   --radius-full: 9999px;

@@ -525,7 +525,7 @@
 
 /* Mostrar/Ocultar elementos según breakpoint */
 .mobile {
-  display: none;
+  display: none !important;
 }
 
 .desktop {
@@ -534,7 +534,7 @@
 
 @media (max-width: 768px) {
   .mobile {
-    display: flex;
+    display: flex !important;
   }
 
   .desktop {

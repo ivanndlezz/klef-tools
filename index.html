@@ -311,6 +311,27 @@
         ></path>
       </svg>
     </symbol>
+    <symbol id="icon-color-palette" viewBox="0 0 24 24">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+        <path
+          d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+        ></path>
+      </svg>
+    </symbol>
   </svg>
   <body>
     <header class="cssapp-header">
@@ -366,6 +387,34 @@
                         <use data-attr-href="icon" href="#icon-globe"></use>
                       </svg>
                       <span data-bind="text">Lista de apps</span>
+                    </a>
+                  </li>
+                </ul>
+                <h4 data-bind="title">UI Libraries</h4>
+                <ul>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/ui/design-system/"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use
+                          data-attr-href="icon"
+                          href="#icon-color-palette"
+                        ></use>
+                      </svg>
+                      <span data-bind="text">Design System</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/ui/component-library"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use data-attr-href="icon" href="#icon-book"></use>
+                      </svg>
+                      <span data-bind="text">Component Library</span>
                     </a>
                   </li>
                 </ul>
@@ -456,8 +505,9 @@
           </li>
         </ul>
         <a
-          href="https://ivanndlezz.github.io/klef-tools/"
+          href="https://github.com/ivanndlezz/klef-tools"
           class="nav-link github-btn mobile"
+          target="_blank"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path
@@ -486,9 +536,10 @@
         </svg>
       </button>
       <a
-        href="https://ivanndlezz.github.io/klef-tools/"
+        href="https://github.com/ivanndlezz/klef-tools"
         class="nav-link github-btn desktop"
         style="cursor: pointer"
+        target="_blank"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
           <path
@@ -518,7 +569,9 @@
           mantenibles.
         </p>
         <div class="btn-group mb-10 animate-fade-in animate-delay-3">
-          <button class="btn btn-secondary btn-lg">Ver casos de éxito</button>
+          <a href="#apps">
+            <button class="btn btn-secondary btn-lg">Ver Apps</button>
+          </a>
         </div>
 
         <!-- Estadísticas -->

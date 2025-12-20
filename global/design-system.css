@@ -664,7 +664,7 @@ body {
   transition: width var(--transition-base) var(--ease-out);
 }
 
-.nav-link:hover::after,
+.nav-link:not(.desktop):not(.mobile):hover::after,
 .nav-link.active::after {
   width: 100%;
 }

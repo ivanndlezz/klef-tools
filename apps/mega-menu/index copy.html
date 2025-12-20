@@ -2,146 +2,30 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Playground · HTML + JSON Pairing (Async)</title>
+    <title>Mega Menu · UI Composer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../../global/styles.css" />
     <link rel="stylesheet" href="../../global/root.css" />
     <link rel="stylesheet" href="../../components/mega-menu.css" />
+    <script src="../../utilities/kit-manager.js"></script>
+    <script src="../../utilities/ui-composer.js"></script>
     <script src="../../global/script.js"></script>
     <style>
-      :root {
-        --bg: #ffffff;
-        --card: #ffffffcc;
-        --border: #e5e5ea;
-        --text: #1d1d1f;
-        --muted: #6e6e73;
-        --radius: 18px;
-        --accent: #007aff;
-      }
-
       body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui;
-        background: var(--bg);
-        color: var(--text);
-      }
-
-      .header {
-        padding: 24px;
-        text-align: center;
-      }
-
-      .layout {
         display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        padding: 24px;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-between;
       }
 
-      section {
-        background: var(--card);
-        backdrop-filter: blur(12px);
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-        padding: 20px;
-        width: calc(50% - 25px);
-      }
 
-      h2 {
-        margin-top: 0;
-      }
+      /* ============================================
+       Others
+       ============================================ */
 
-      label {
-        display: block;
-        font-size: 13px;
-        margin-top: 12px;
-        color: var(--muted);
-      }
-
-      input,
-      textarea {
-        width: -webkit-fill-available;
-        padding: 10px;
-        margin-top: 6px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        font-family: monospace;
-        font-size: 13px;
-      }
-
-      textarea {
-        min-height: 120px;
-      }
-
-      button {
-        padding: 10px 14px;
-        border-radius: 14px;
-        border: 1px solid var(--border);
-        background: white;
-        font-weight: 500;
-        cursor: pointer;
-      }
-
-      button.copy {
-        margin-top: 8px;
-        background: #f0f0f2;
-        font-size: 12px;
-      }
-
-      button#generate {
-        margin-top: 16px;
-      }
-
-      .output {
-        margin-top: 8px;
-        padding: 12px;
-        background: #f9f9fb;
-        border-radius: 12px;
-        font-family: monospace;
-        font-size: 13px;
-        white-space: pre-wrap;
-      }
-
-      .preview {
-        margin-top: 16px;
-        padding: 16px;
-        border: 1px dashed var(--border);
-        border-radius: 12px;
-      }
-
-      .skeleton .line {
-        height: 14px;
-        background: #e5e5ea;
-        border-radius: 6px;
-        margin-bottom: 8px;
-        animation: pulse 1.5s infinite;
-      }
-
-      .skeleton .title {
-        width: 60%;
-        height: 18px;
-      }
-      .skeleton .short {
-        width: 40%;
-      }
-
-      @keyframes pulse {
-        0% {
-          opacity: 0.6;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0.6;
-        }
-      }
-
-      @media (max-width: 768px) {
-        section {
-          width: -webkit-fill-available;
-        }
-      }
+       #header .menu-root{
+        position: relative;
+       }
     </style>
   </head>
   <svg id="sprite" class="hidden" xmlns="http://www.w3.org/2000/svg">
@@ -307,7 +191,7 @@
     </symbol>
   </svg>
   <body>
-    <header class="cssapp-header">
+     <header class="cssapp-header">
       <div class="header-left">
         <a href="#" class="logo">
           <div class="logo-icon">
@@ -492,167 +376,161 @@
         GitHub
       </a>
     </header>
-    <div class="header">
-      <h1>Playground Declarativo (Async)</h1>
-      <p>HTML + JSON · Skeleton · Hidratación Asíncrona</p>
+
+    <div id="header">
+      <!-- aquí se renderiza el mega menu -->
     </div>
 
-    <div class="layout">
-      <section>
-        <h2>Declaración</h2>
+    <!-- ===================== -->
+    <!-- TEMPLATE DEL MEGA MENU -->
+    <!-- ===================== -->
+    <template id="mega-menu-template">
+      <nav class="mega-menu">
+        
+        
+        <ul class="menu-root" style="z-index: 0!important;">
+          <li data-repeat="top-links" class="menu-item">
+            <a data-attr-href="url" class="menu-trigger button">
+              <svg class="icon" width="16" height="16">
+                <use data-attr-href="icon"></use>
+              </svg>
+              <span data-bind="text"></span>
+            </a>
+          </li>
+          <li class="menu-item" data-repeat="items">
+            <button class="menu-trigger">
+              <svg class="icon" width="16" height="16">
+                <use data-attr-href="icon"></use>
+              </svg>
+              <span data-bind="label"></span>
+            </button>
 
-        <label>JSON ID</label>
-        <input id="json-id" value="myid-data" />
-
-        <label>JSON Data (simula API)</label>
-        <textarea id="json-data">
-{
-  "title": "Hola desde API",
-  "description": "Este contenido llegó de forma asíncrona"
-}</textarea
-        >
-
-        <label>Template ID</label>
-        <input id="template-id" value="myid-html" />
-
-        <label>HTML Template</label>
-        <textarea id="template-html">
-<div class="card">
-  <h2 data-bind="title"></h2>
-  <p data-bind="description"></p>
-</div></textarea
-        >
-
-        <label>Target ID</label>
-        <input id="target-id" value="myid-target" />
-
-        <button id="generate">Generar + Simular API</button>
-      </section>
-
-      <section>
-        <h2>Resultados</h2>
-
-        <label>HTML Target</label>
-        <div class="output" id="out-target"></div>
-        <button class="copy" data-copy="out-target">Copiar</button>
-
-        <label>HTML Button</label>
-        <div class="output" id="out-button"></div>
-        <button class="copy" data-copy="out-button">Copiar</button>
-
-        <label>HTML &lt;script json&gt;</label>
-        <div class="output" id="out-json"></div>
-        <button class="copy" data-copy="out-json">Copiar</button>
-
-        <label>Preview (Skeleton → Data)</label>
-        <div class="preview" id="preview"></div>
-      </section>
-    </div>
-
-    <template id="card-skeleton">
-      <div class="card skeleton">
-        <div class="line title"></div>
-        <div class="line"></div>
-        <div class="line short"></div>
-      </div>
+            <div class="mega-panel">
+              <div class="mega-column" data-repeat="columns">
+                <h4 data-bind="title"></h4>
+                <ul>
+                  <li data-repeat="links">
+                    <a data-attr-href="url">
+                      <svg class="icon" width="14" height="14">
+                        <use data-attr-href="icon"></use>
+                      </svg>
+                      <span data-bind="text"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        
+        </div>
+      </nav>
     </template>
 
-    <script>
-      function waitForJSON(id) {
-        return new Promise((resolve) => {
-          const existing = document.getElementById(id);
-          if (existing) {
-            resolve(JSON.parse(existing.textContent));
-            return;
+    <!-- ===================== -->
+    <!-- SKELETON -->
+    <!-- ===================== -->
+    <template id="mega-menu-skeleton">
+      <nav class="mega-menu skeleton">
+        <div class="skeleton-bar"></div>
+      </nav>
+    </template>
+
+    <!-- ===================== -->
+    <!-- JSON (simula API async) -->
+    <!-- ===================== -->
+    <script type="application/json" id="mega-menu-data">
+      {
+        "top-links": [
+          {
+            "text": "Home",
+            "url": "https://ivanndlezz.github.io/klef-tools/",
+            "icon": "#icon-home"
           }
-
-          const observer = new MutationObserver(() => {
-            const script = document.getElementById(id);
-            if (script) {
-              observer.disconnect();
-              resolve(JSON.parse(script.textContent));
-            }
-          });
-
-          observer.observe(document.body, { childList: true, subtree: true });
-        });
+        ],
+        "items": [
+          {
+            "label": "Apps",
+            "icon": "#icon-code-app",
+            "type": "submenu",
+            "columns": [
+              {
+                "title": "Directorio",
+                "links": [
+                  {
+                    "text": "Lista de apps",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/",
+                    "icon": "#icon-globe"
+                  }
+                ]
+              },
+              {
+                "title": "Herramientas",
+                "links": [
+                  {
+                    "text": "SVG Symbol Creator",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/svg-symbol-creator/",
+                    "icon": "#icon-paint"
+                  },
+                  {
+                    "text": "Modular Creatio Playground",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/modular-creatio-playground/",
+                    "icon": "#icon-star-sparks"
+                  },
+                  {
+                    "text": "Mega Menu Demo",
+                    "url": "https://ivanndlezz.github.io/klef-tools/apps/mega-menu/",
+                    "icon": "#icon-stacked-list"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Docs",
+            "icon": "#icon-book",
+            "type": "submenu",
+            "columns": [
+              {
+                "title": "Documentación",
+                "links": [
+                  {
+                    "text": "Principios UX/UI",
+                    "url": "https://ivanndlezz.github.io/klef-tools/docs/ux-ui-architecture-principles.html",
+                    "icon": "#icon-code"
+                  },
+                  {
+                    "text": "Acerca de Estilos",
+                    "url": "https://ivanndlezz.github.io/klef-tools/docs/about-styles.html",
+                    "icon": "#icon-paint"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
+    </script>
 
-      function hydrateAsync({ templateHTML, jsonId, target }) {
-        const skel = document.getElementById("card-skeleton");
-        target.innerHTML = "";
-        target.appendChild(skel.content.cloneNode(true));
-
-        waitForJSON(jsonId).then((data) => {
-          const wrapper = document.createElement("div");
-          wrapper.innerHTML = templateHTML;
-
-          wrapper.querySelectorAll("[data-bind]").forEach((el) => {
-            const key = el.dataset.bind;
-            if (data[key] !== undefined) el.textContent = data[key];
-          });
-
-          target.innerHTML = "";
-          target.appendChild(wrapper);
-        });
-      }
-
-      // COPY
-
-      document.addEventListener("click", (e) => {
-        const btn = e.target.closest(".copy");
-        if (!btn) return;
-
-        const target = document.getElementById(btn.dataset.copy);
-        navigator.clipboard.writeText(target.textContent);
-        btn.textContent = "Copiado ✓";
-        setTimeout(() => (btn.textContent = "Copiar"), 1200);
+    <!-- ===================== -->
+    <!-- INIT -->
+    <!-- ===================== -->
+    <script>
+      UIComposer.hydrate({
+        template: "#mega-menu-template",
+        data: "#mega-menu-data",
+        target: "#header",
+        skeleton: "#mega-menu-skeleton",
       });
 
-      // GENERATE
-
-      document.getElementById("generate").addEventListener("click", () => {
-        const jsonId = document.getElementById("json-id").value;
-        const jsonData = document.getElementById("json-data").value;
-        const templateHTML = document.getElementById("template-html").value;
-
-        let parsed;
-        try {
-          parsed = JSON.parse(jsonData);
-        } catch {
-          alert("JSON inválido");
-          return;
-        }
-
-        document.getElementById(
-          "out-target"
-        ).textContent = `<div id="content"></div>`;
-        document.getElementById(
-          "out-button"
-        ).textContent = `<button data-json="${jsonId}" data-target="content">Cargar</button>`;
-        document.getElementById(
-          "out-json"
-        ).textContent = `<script type="application/json" id="${jsonId}">\n${JSON.stringify(
-          parsed,
-          null,
-          2
-        )}\n<\/script>`;
-
-        const preview = document.getElementById("preview");
-
-        const existing = document.getElementById(jsonId);
-        if (existing) existing.remove();
-
-        hydrateAsync({ templateHTML, jsonId, target: preview });
-
-        setTimeout(() => {
-          const script = document.createElement("script");
-          script.type = "application/json";
-          script.id = jsonId;
-          script.textContent = JSON.stringify(parsed);
-          document.body.appendChild(script);
-        }, 1500);
-      });
+      // Mobile menu toggle
+      const toggle = document.querySelector(".mobile-menu-toggle");
+      const menu = document.querySelector(".menu-root");
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
     </script>
   </body>
   <footer>

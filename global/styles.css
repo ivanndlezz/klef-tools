@@ -346,7 +346,7 @@ p {
    BOTONES
    ===================================================== */
 
-button {
+header button {
   background: var(--accent);
   border: none;
   color: #000;
@@ -358,7 +358,7 @@ button {
   font-family: inherit;
 }
 
-button:hover {
+header button:hover {
   background: var(--gray-200);
   transform: translateY(-1px);
 }
@@ -381,7 +381,7 @@ button:hover {
    TARJETAS Y CONTENEDORES
    ===================================================== */
 
-.card {
+.card-k {
   background: var(--card);
   border-radius: var(--radius);
   padding: var(--space-xl);
@@ -390,7 +390,7 @@ button:hover {
   border: 1px solid transparent;
 }
 
-.card:hover {
+.card-k:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-sm);
   border-color: var(--accent);
@@ -447,10 +447,9 @@ button:hover {
    FORMULARIOS
    ===================================================== */
 
-input:not([type="color"]),
+input:not([type="color"]):not([type="number"]),
 textarea,
 select {
-  width: 100%;
   background: var(--panel);
   border: 1px solid var(--border);
   color: var(--text);

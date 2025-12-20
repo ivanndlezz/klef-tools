@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./global/styles.css" />
     <link rel="stylesheet" href="./global/root.css" />
     <link rel="stylesheet" href="./components/mega-menu.css" />
+    <link rel="stylesheet" href="./global/design-system.css" />
     <script src="./global/script.js"></script>
 
     <style>
@@ -67,6 +68,7 @@
         font-size: 2.6rem;
         margin-bottom: 0.75rem;
         letter-spacing: -0.02em;
+        line-height: 3rem;
       }
       .hero p {
         font-size: 1.05rem;
@@ -81,7 +83,7 @@
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 20px;
       }
-      .card {
+      .tools .card {
         background: var(--bg-surface);
         border: 1px solid var(--border-soft);
         border-radius: var(--radius);
@@ -94,7 +96,7 @@
         text-decoration: none;
         color: inherit;
       }
-      .card:hover {
+      .tools .card:hover {
         transform: translateY(-4px);
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
       }
@@ -116,7 +118,7 @@
         line-height: 1.5;
         flex: 1;
       }
-      .card span {
+      .tools .card span {
         align-self: flex-start;
         margin-top: 6px;
         padding: 6px 14px;
@@ -132,6 +134,19 @@
           display: flex;
           flex-direction: column;
         }
+
+        #apps .card {
+          display: flex;
+        }
+
+        #apps .card-visual {
+          height: -webkit-fill-available;
+          align-items: flex-start;
+        }
+      }
+
+      .card-visual {
+        background-image: linear-gradient(45deg, #ffffff6b, transparent);
       }
     </style>
   </head>
@@ -483,47 +498,165 @@
         GitHub
       </a>
     </header>
+    <section id="hero-stats" class="section-xl bg-primary">
+      <div class="container-lg text-center">
+        <div
+          class="hero-tag text-blue mb-3 animate-fade-in eyebrow font-medium"
+        >
+          HTML • CSS • JS • JSON • SVG
+        </div>
+        <h1 class="display-lg mb-4 animate-fade-in animate-delay-1">
+          Herramientas simples para construir interfaces reales
+        </h1>
+        <p
+          class="body-lg text-secondary mb-8 mx-auto animate-fade-in animate-delay-2"
+          style="max-width: 650px"
+        >
+          Klef Tool Set es un conjunto de utilidades UI hechas con tecnologías
+          básicas (HTML, CSS, JS, JSON y SVG). Sin frameworks, sin capas
+          innecesarias. Pensado para crear productos modernos, claros y
+          mantenibles.
+        </p>
+        <div class="btn-group mb-10 animate-fade-in animate-delay-3">
+          <button class="btn btn-secondary btn-lg">Ver casos de éxito</button>
+        </div>
 
-    <section class="hero">
-      <h1>Herramientas simples para construir interfaces reales</h1>
-      <p>
-        Klef Tool Set es un conjunto de utilidades UI hechas con tecnologías
-        básicas (HTML, CSS, JS, JSON y SVG). Sin frameworks, sin capas
-        innecesarias. Pensado para crear productos modernos, claros y
-        mantenibles.
-      </p>
+        <!-- Estadísticas -->
+      </div>
     </section>
 
-    <section class="tools">
-      <a class="card" href="apps/svg-symbol-creator/">
-        <small>Tool</small>
-        <h3>SVG Symbol Creator</h3>
-        <p>
-          Crea, edita y organiza bibliotecas de símbolos SVG reutilizables con
-          exportación en JSON.
-        </p>
-        <span>Abrir herramienta</span>
-      </a>
-
-      <a class="card" href="apps/modular-creatio-playground/">
-        <small>Playground</small>
-        <h3>Modular Creatio</h3>
-        <p>
-          Experimenta con composición declarativa HTML + JSON y carga asíncrona
-          sin frameworks.
-        </p>
-        <span>Abrir playground</span>
-      </a>
-
-      <a class="card" href="apps/mega-menu/">
-        <small>Component</small>
-        <h3>Mega Menu</h3>
-        <p>
-          Ejemplo de navegación compleja y escalable construida con templates y
-          datos.
-        </p>
-        <span>Ver demo</span>
-      </a>
+    <section id="apps" class="section bg-secondary">
+      <div class="container-lg">
+        <div class="mb-8">
+          <h3 class="headline-md mb-4">Nuestras apps</h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="card card-interactive">
+              <div class="card-visual bg-blue">
+                <div
+                  style="
+                    background-color: #00295299;
+                    border-radius: 20px;
+                    width: 85px;
+                    height: 85px;
+                    color: #ffffff;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <svg class="icon" width="48" height="48">
+                    <use data-attr-href="icon" href="#icon-paint"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-content">
+                <span class="badge badge-blue badge-lg eyebrow mb-3 font-bold"
+                  >Tool</span
+                >
+                <h4 class="card-title mb-4">SVG Symbol Creator</h4>
+                <p class="card-description mb-6">
+                  Crea, edita y organiza bibliotecas de símbolos SVG
+                  reutilizables con exportación en JSON.
+                </p>
+                <a
+                  href="https://ivanndlezz.github.io/klef-tools/apps/svg-symbol-creator/"
+                >
+                  <button
+                    class="btn btn-secondary e btn-sm skip"
+                    style="
+                      color: var(--color-blue);
+                      border-color: var(--color-blue);
+                    "
+                  >
+                    Ir a la app
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="card card-interactive">
+              <div class="card-visual bg-green">
+                <div
+                  style="
+                    background-color: #003819c0;
+                    border-radius: 20px;
+                    width: 85px;
+                    height: 85px;
+                    color: #ffffff;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <svg class="icon" width="48" height="48">
+                    <use data-attr-href="icon" href="#icon-star-sparks"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-content">
+                <span class="badge badge-green badge-lg eyebrow mb-3 font-bold"
+                  >Playground</span
+                >
+                <h4 class="card-title">Modular Creatio</h4>
+                <p class="card-description mb-6">
+                  Experimenta con composición declarativa HTML + JSON y carga
+                  asíncrona sin frameworks.
+                </p>
+                <button
+                  class="btn btn-secondary btn-sm skip"
+                  style="
+                    color: var(--color-green);
+                    border-color: var(--color-green);
+                  "
+                >
+                  Ir a la app
+                </button>
+              </div>
+            </div>
+            <div class="card card-interactive">
+              <div class="card-visual bg-purple">
+                <div
+                  style="
+                    background-color: #2d0038c0;
+                    border-radius: 20px;
+                    width: 85px;
+                    height: 85px;
+                    color: #ffffff;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <svg class="icon" width="48" height="48">
+                    <use data-attr-href="icon" href="#icon-stacked-list"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-content">
+                <span class="badge badge-purple badge-lg eyebrow mb-3 font-bold"
+                  >Component</span
+                >
+                <h4 class="card-title">Mega Menu</h4>
+                <p class="card-description mb-6">
+                  Ejemplo de navegación compleja y escalable construida con
+                  templates y datos.
+                </p>
+                <button
+                  class="btn btn-secondary btn-sm skip"
+                  style="
+                    color: var(--color-purple);
+                    border-color: var(--color-purple);
+                  "
+                >
+                  Ir a la app
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
   <footer>

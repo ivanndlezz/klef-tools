@@ -16,6 +16,10 @@
   margin: 0;
 }
 
+.menu-item:hover .mega-panel {
+  display: flex;
+}
+
 .menu-trigger {
   background: none;
   border: none;
@@ -43,10 +47,6 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   gap: 32px;
   padding-right: 40px;
-}
-
-.menu-item:hover .mega-panel {
-  display: flex;
 }
 
 .mega-column h4 {
@@ -134,7 +134,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .mega-menu {
     flex-direction: column;
     align-items: stretch;
@@ -223,9 +223,16 @@
   border-radius: var(--radius-sm);
 }
 
-.button:hover {
+.button:hover,
+.menu-trigger:hover {
   background: var(--gray-200);
   transform: translateY(-1px);
+}
+
+.menu-item .menu-trigger {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-2);
 }
 
 /*** Menu Logo ***/

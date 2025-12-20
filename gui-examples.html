@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System Showcase</title>
+    <link rel="stylesheet" href="./global/design-system.css" />
+
+    <link rel="stylesheet" href="./global/root.css" />
+    <link rel="stylesheet" href="./global/styles.css" />
+    <link rel="stylesheet" href="./components/mega-menu.css" />
+    <script src="./global/script.js"></script>
+    <style>
+      .cssapp-header {
+        position: relative !important;
+        z-index: 999 !important;
+      }
+      .nav {
+        top: 0;
+      }
+
+      .nav-content {
+        width: -webkit-fill-available;
+        max-width: -webkit-fill-available;
+      }
+
+      .nav-links a {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="sprite" class="hidden" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-code-app" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-paint" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-folder" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-star-sparks" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-modules" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-stacked-list" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"
+          ></path>
+        </svg>
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+          ></path>
+        </svg>
+      </symbol>
+    </svg>
+    <header id="inicio" class="cssapp-header">
+      <div class="header-left">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <svg>
+              <use href="#icon-code"></use>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Klef Apps</span>
+            <span class="logo-subtitle">Tool Library</span>
+          </div>
+        </a>
+      </div>
+      <nav class="mega-menu">
+        <ul class="menu-root">
+          <li class="menu-item top-controls mobile">
+            <!--  button>Go Back</button -->
+            <button id="close-ham" onclick="toggleMenu();">Close</button>
+          </li>
+          <li class="menu-item">
+            <a
+              data-attr-href="url"
+              class="menu-trigger button"
+              href="https://ivanndlezz.github.io/klef-tools/"
+            >
+              <svg class="icon" width="16" height="16">
+                <use data-attr-href="icon" href="#icon-home"></use>
+              </svg>
+              <span data-bind="text">Home</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <button class="menu-trigger">
+              <svg class="icon" width="16" height="16">
+                <use data-attr-href="icon" href="#icon-code-app"></use>
+              </svg>
+              <span data-bind="label">Apps</span>
+            </button>
+
+            <div class="mega-panel">
+              <div class="mega-column">
+                <h4 data-bind="title">Directorio</h4>
+                <ul>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use data-attr-href="icon" href="#icon-globe"></use>
+                      </svg>
+                      <span data-bind="text">Lista de apps</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="mega-column">
+                <h4 data-bind="title">Herramientas</h4>
+                <ul>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/svg-symbol-creator/"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use data-attr-href="icon" href="#icon-paint"></use>
+                      </svg>
+                      <span data-bind="text">SVG Symbol Creator</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/modular-creatio-playground/"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use
+                          data-attr-href="icon"
+                          href="#icon-star-sparks"
+                        ></use>
+                      </svg>
+                      <span data-bind="text">Modular Creatio Playground</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/apps/mega-menu/"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use
+                          data-attr-href="icon"
+                          href="#icon-stacked-list"
+                        ></use>
+                      </svg>
+                      <span data-bind="text">Mega Menu Demo</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="menu-item">
+            <button class="menu-trigger">
+              <svg class="icon" width="16" height="16">
+                <use data-attr-href="icon" href="#icon-book"></use>
+              </svg>
+              <span data-bind="label">Docs</span>
+            </button>
+
+            <div class="mega-panel">
+              <div class="mega-column">
+                <h4 data-bind="title">Documentación</h4>
+                <ul>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/docs/ux-ui-architecture-principles.html"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use data-attr-href="icon" href="#icon-code"></use>
+                      </svg>
+                      <span data-bind="text">Principios UX/UI</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      data-attr-href="url"
+                      href="https://ivanndlezz.github.io/klef-tools/docs/about-styles.html"
+                    >
+                      <svg class="icon" width="14" height="14">
+                        <use data-attr-href="icon" href="#icon-paint"></use>
+                      </svg>
+                      <span data-bind="text">Acerca de Estilos</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <a
+          href="https://ivanndlezz.github.io/klef-tools/"
+          class="nav-link github-btn mobile"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            ></path>
+          </svg>
+          GitHub
+        </a>
+      </nav>
+      <button
+        class="hamburger"
+        aria-label="Toggle menu"
+        onclick="toggleMenu();"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a
+        href="https://ivanndlezz.github.io/klef-tools/"
+        class="nav-link github-btn desktop"
+        style="cursor: pointer"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+        GitHub
+      </a>
+    </header>
+    <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+    <nav class="nav">
+      <div class="nav-content">
+        <a href="#" class="nav-logo">Design System</a>
+        <ul class="nav-links">
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+
+          <li><a href="#examples" class="nav-link active">Ejemplos</a></li>
+          <li><a href="#layouts" class="nav-link">Layouts</a></li>
+          <li><a href="#components" class="nav-link">Componentes</a></li>
+          <li><a href="#forms" class="nav-link">Formularios</a></li>
+        </ul>
+        <button class="nav-toggle">
+          <span class="nav-toggle-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+    <section id="hero" class="section-xl bg-secondary">
+      <div class="container-lg text-center">
+        <div class="eyebrow text-blue mb-3 animate-fade-in">
+          Nuevo Design System
+        </div>
+        <h1 class="display-lg mb-4 animate-fade-in animate-delay-1">
+          Diseño que inspira.<br />Código que funciona.
+        </h1>
+        <p
+          class="body-xl text-secondary mb-6 mx-auto animate-fade-in animate-delay-2"
+          style="max-width: 700px"
+        >
+          Un sistema de diseño completo inspirado en Apple. Elegante, accesible
+          y listo para producción.
+        </p>
+        <div class="btn-group animate-fade-in animate-delay-3">
+          <button class="btn btn-primary btn-lg">Comenzar ahora</button>
+          <button class="btn btn-secondary btn-lg">Ver documentación</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       TYPOGRAPHY SHOWCASE
+       ============================================ -->
+    <section class="section">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <div class="eyebrow mb-2">Tipografía</div>
+          <h2 class="headline-xl mb-3">Sistema tipográfico completo</h2>
+          <p class="body-lg text-secondary">
+            Escalas perfectas para cada contexto
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div class="card">
+            <div class="card-content">
+              <div class="display-xl mb-4">Display XL</div>
+              <div class="display-lg mb-4">Display Large</div>
+              <div class="display-md mb-4">Display Medium</div>
+              <div class="display-sm mb-4">Display Small</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="headline-xl mb-3">Headline XL</div>
+              <div class="headline-lg mb-3">Headline Large</div>
+              <div class="headline-md mb-3">Headline Medium</div>
+              <div class="headline-sm mb-3">Headline Small</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="body-xl mb-3 text-secondary">
+                Body XL - Ideal para subtítulos importantes y descripciones
+                destacadas que necesitan más presencia visual.
+              </div>
+              <div class="body-lg mb-3 text-secondary">
+                Body Large - El tamaño estándar para la mayoría del contenido.
+                Perfectamente legible en cualquier dispositivo.
+              </div>
+              <div class="body-md mb-3 text-secondary">
+                Body Medium - Perfecto para textos secundarios y contenido
+                complementario.
+              </div>
+              <div class="body-sm text-secondary">
+                Body Small - Útil para notas, detalles y texto terciario.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="label-lg mb-3">
+                Label Large - Etiquetas destacadas
+              </div>
+              <div class="label-md mb-3">Label Medium - Etiquetas estándar</div>
+              <div class="label-sm mb-3">Label Small - Categorías</div>
+              <div class="caption text-tertiary">
+                Caption - Metadata y timestamps
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================
+       ALERTS & BADGES
+       ============================================ -->
+    <section class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <h2 class="headline-xl mb-3">Alertas y notificaciones</h2>
+          <p class="body-lg text-secondary">
+            Comunica estados y mensajes importantes
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-5">
+          <div class="alert alert-info">
+            <svg class="alert-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Información importante</div>
+              <div class="alert-description">
+                Tu sistema está actualizado a la última versión disponible.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-success">
+            <svg class="alert-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">¡Operación exitosa!</div>
+              <div class="alert-description">
+                Todos los cambios se han guardado correctamente.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-warning">
+            <svg class="alert-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Advertencia</div>
+              <div class="alert-description">
+                Tu espacio de almacenamiento está casi lleno. Considera
+                actualizar tu plan.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg class="alert-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Error de conexión</div>
+              <div class="alert-description">
+                No se pudo conectar al servidor. Por favor verifica tu conexión
+                a internet.
+              </div>
+            </div>
+            <button class="alert-close">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Badges y etiquetas</h3>
+            </div>
+            <div class="card-content">
+              <div class="flex flex-wrap gap-3">
+                <span class="badge badge-blue">Nuevo</span>
+                <span class="badge badge-green">Activo</span>
+                <span class="badge badge-orange">Pendiente</span>
+                <span class="badge badge-red">Urgente</span>
+                <span class="badge badge-purple">Premium</span>
+                <span class="badge badge-pink">Popular</span>
+                <span class="badge badge-gray">Archivado</span>
+              </div>
+
+              <hr class="divider" />
+
+              <div class="flex flex-wrap gap-3">
+                <span class="badge badge-blue badge-sm">Small</span>
+                <span class="badge badge-green">Default</span>
+                <span class="badge badge-orange badge-lg">Large</span>
+              </div>
+
+              <hr class="divider" />
+
+              <div class="flex flex-wrap gap-3 items-center">
+                <span class="badge badge-blue">
+                  <svg
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  Con ícono
+                </span>
+                <span class="badge badge-green badge-dot"></span>
+                <span class="badge badge-red badge-dot"></span>
+                <span class="badge badge-orange badge-dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       NAVIGATION COMPONENTS
+       ============================================ -->
+    <section class="section">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <h2 class="headline-xl mb-3">Componentes de navegación</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Tabs -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Tabs</h3>
+            </div>
+            <div class="card-content">
+              <div class="tabs">
+                <button class="tab active">General</button>
+                <button class="tab">Seguridad</button>
+                <button class="tab">Notificaciones</button>
+                <button class="tab">Avanzado</button>
+              </div>
+              <div class="tab-content active" id="tab-c1">
+                <p class="body-md text-secondary">
+                  Contenido de la pestaña General. Aquí puedes configurar las
+                  opciones básicas de tu cuenta.
+                </p>
+              </div>
+              <div class="tab-content" id="tab-c2" data-tab-content="Seguridad">
+                <div class="alert alert-warning">
+                  <svg
+                    class="alert-icon"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    ></path>
+                  </svg>
+                  <div class="alert-content">
+                    <div class="alert-title">Advertencia</div>
+                    <div class="alert-description">
+                      Tu espacio de almacenamiento está casi lleno. Considera
+                      actualizar tu plan.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-content"
+                id="tab-c3"
+                data-tab-content="Notificaciones"
+              >
+                <div class="alert alert-info">
+                  <svg
+                    class="alert-icon"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                    ></path>
+                  </svg>
+                  <div class="alert-content">
+                    <div class="alert-title">Información importante</div>
+                    <div class="alert-description">
+                      Tu sistema está actualizado a la última versión
+                      disponible.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-content" id="tab-c4" data-tab-content="Avanzado">
+                <div class="">
+                  <div class="flex items-center justify-between mb-4">
+                    <h4 class="headline-sm">Actividad reciente</h4>
+                    <span class="badge badge-blue">En vivo</span>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                      <div
+                        class="w-8 h-8 bg-green-light rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <div class="w-2.5 h-2.5 bg-green rounded-full"></div>
+                      </div>
+                      <div class="flex-1">
+                        <div class="body-md font-medium mb-1">
+                          Nuevo usuario registrado
+                        </div>
+                        <div class="caption text-secondary">
+                          María González se unió al equipo
+                        </div>
+                        <div class="caption text-tertiary mt-1">
+                          Hace 5 minutos
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <div
+                        class="w-8 h-8 bg-blue-light rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <div class="w-2.5 h-2.5 bg-blue rounded-full"></div>
+                      </div>
+                      <div class="flex-1">
+                        <div class="body-md font-medium mb-1">
+                          Pago procesado exitosamente
+                        </div>
+                        <div class="caption text-secondary">
+                          Factura #2847 - $1,250.00
+                        </div>
+                        <div class="caption text-tertiary mt-1">
+                          Hace 12 minutos
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <div
+                        class="w-8 h-8 bg-orange-light rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <div class="w-2.5 h-2.5 bg-orange rounded-full"></div>
+                      </div>
+                      <div class="flex-1">
+                        <div class="body-md font-medium mb-1">
+                          Alerta del sistema
+                        </div>
+                        <div class="caption text-secondary">
+                          Actualización disponible v2.4.1
+                        </div>
+                        <div class="caption text-tertiary mt-1">
+                          Hace 1 hora
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Breadcrumbs -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Breadcrumbs</h3>
+            </div>
+            <div class="card-content">
+              <nav class="breadcrumb mb-4">
+                <div class="breadcrumb-item">
+                  <a href="#">Inicio</a>
+                </div>
+                <svg
+                  class="breadcrumb-separator"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+                <div class="breadcrumb-item">
+                  <a href="#">Productos</a>
+                </div>
+                <svg
+                  class="breadcrumb-separator"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+                <div class="breadcrumb-item">
+                  <a href="#">Electrónica</a>
+                </div>
+                <svg
+                  class="breadcrumb-separator"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+                <div class="breadcrumb-item">Laptops</div>
+              </nav>
+
+              <nav class="breadcrumb">
+                <div class="breadcrumb-item">
+                  <a href="#">Dashboard</a>
+                </div>
+                <svg
+                  class="breadcrumb-separator"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+                <div class="breadcrumb-item">Configuración</div>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Paginación</h3>
+            </div>
+            <div class="card-content">
+              <div class="pagination">
+                <button class="pagination-item" disabled>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+                <a href="#" class="pagination-item active">1</a>
+                <a href="#" class="pagination-item">2</a>
+                <a href="#" class="pagination-item">3</a>
+                <a href="#" class="pagination-item">4</a>
+                <a href="#" class="pagination-item">5</a>
+                <button class="pagination-item">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown Menu -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Menú desplegable</h3>
+            </div>
+            <div class="card-content">
+              <div class="dropdown">
+                <button class="btn btn-secondary">
+                  Opciones
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-header">Acciones</div>
+                  <a href="#" class="dropdown-item">
+                    <svg
+                      class="dropdown-item-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                      />
+                      <path
+                        d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                      />
+                    </svg>
+                    Editar
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <svg
+                      class="dropdown-item-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                      />
+                      <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                    </svg>
+                    Duplicar
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <svg
+                      class="dropdown-item-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Descargar
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">
+                    <svg
+                      class="dropdown-item-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="3 6 5 6 21 6" />
+                      <path
+                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                      />
+                    </svg>
+                    Eliminar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================
+       ACCORDION
+       ============================================ -->
+    <section class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <h2 class="headline-xl mb-3">Preguntas frecuentes</h2>
+          <p class="body-lg text-secondary">
+            Encuentra respuestas a las preguntas más comunes
+          </p>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item active">
+            <button class="accordion-header">
+              <span>¿Cómo empiezo a usar el design system?</span>
+              <svg
+                class="accordion-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Simplemente importa el archivo CSS en tu proyecto y comienza a
+                usar las clases predefinidas. Todas las clases siguen una
+                nomenclatura intuitiva inspirada en los principios de diseño de
+                Apple.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>¿Es compatible con frameworks como React o Vue?</span>
+              <svg
+                class="accordion-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Sí, este design system es framework-agnostic. Funciona
+                perfectamente con HTML vanilla, React, Vue, Angular o cualquier
+                otro framework que uses. Solo aplica las clases CSS a tus
+                componentes.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>¿Puedo personalizar los colores y estilos?</span>
+              <svg
+                class="accordion-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Por supuesto. Todos los valores están definidos como variables
+                CSS personalizadas en el :root, lo que te permite sobrescribir
+                fácilmente colores, espaciados, tipografía y más.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>¿Incluye soporte para modo oscuro?</span>
+              <svg
+                class="accordion-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                El sistema está preparado para modo oscuro con media queries de
+                prefers-color-scheme. Solo necesitas descomentar las reglas CSS
+                correspondientes o implementar tu propia lógica de tema.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>¿Es accesible para todos los usuarios?</span>
+              <svg
+                class="accordion-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                Sí, la accesibilidad es una prioridad. Incluye focus visible
+                mejorado, soporte para lectores de pantalla, respeto por
+                prefers-reduced-motion, y contraste adecuado según WCAG 2.1.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       LOADING STATES
+       ============================================ -->
+    <section class="section">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <h2 class="headline-xl mb-3">Estados de carga</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+          <div class="card">
+            <div class="card-content text-center">
+              <div class="spinner mx-auto mb-4"></div>
+              <div class="body-md text-secondary">Cargando...</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content text-center">
+              <div class="spinner spinner-sm mx-auto mb-4"></div>
+              <div class="body-sm text-secondary">Pequeño</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content text-center">
+              <div class="spinner spinner-lg mx-auto mb-4"></div>
+              <div class="body-md text-secondary">Grande</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="headline-md mb-4">Progress indeterminado</h3>
+              <div class="progress progress-indeterminate"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================
+       REAL-WORLD EXAMPLE: Dashboard
+       ============================================ -->
+    <section id="examples" class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <div class="eyebrow mb-2">Ejemplo real</div>
+          <h2 class="headline-xl mb-3">Dashboard de aplicación</h2>
+          <p class="body-lg text-secondary">
+            Un ejemplo completo de cómo se ve en producción
+          </p>
+        </div>
+
+        <!-- Dashboard Header -->
+        <div class="card mb-5">
+          <div class="card-content">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h1 class="headline-lg mb-1">Bienvenido de nuevo, Juan 👋</h1>
+                <p class="body-md text-secondary">
+                  Aquí está tu resumen de hoy
+                </p>
+              </div>
+              <button class="btn btn-primary">
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+                Crear nuevo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-4 gap-4 mb-5">
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center justify-between mb-2">
+                <span class="caption text-tertiary">Usuarios totales</span>
+                <span class="badge badge-green badge-sm">+12%</span>
+              </div>
+              <div class="headline-lg text-blue mb-1">24,582</div>
+              <div class="caption text-secondary">vs mes anterior</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center justify-between mb-2">
+                <span class="caption text-tertiary">Ingresos</span>
+                <span class="badge badge-green badge-sm">+8%</span>
+              </div>
+              <div class="headline-lg text-green mb-1">$52,340</div>
+              <div class="caption text-secondary">vs mes anterior</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center justify-between mb-2">
+                <span class="caption text-tertiary">Conversión</span>
+                <span class="badge badge-red badge-sm">-2%</span>
+              </div>
+              <div class="headline-lg text-orange mb-1">3.24%</div>
+              <div class="caption text-secondary">vs mes anterior</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center justify-between mb-2">
+                <span class="caption text-tertiary">Satisfacción</span>
+                <span class="badge badge-green badge-sm">+5%</span>
+              </div>
+              <div class="headline-lg text-purple mb-1">4.8/5</div>
+              <div class="caption text-secondary">basado en 1,234 reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-3 gap-5">
+          <!-- Activity Feed -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex items-center justify-between">
+                <h3 class="headline-md">Actividad reciente</h3>
+                <button class="btn btn-ghost btn-sm">Ver todo</button>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="flex flex-col gap-4">
+                <div class="flex gap-3">
+                  <div class="list-item-icon list-item-icon-blue">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium mb-1">
+                      Nuevo usuario registrado
+                    </div>
+                    <div class="caption text-secondary">
+                      María González se unió hace 5 min
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <div class="list-item-icon list-item-icon-green">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium mb-1">Pago procesado</div>
+                    <div class="caption text-secondary">
+                      $399.00 - hace 12 min
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <div class="list-item-icon list-item-icon-orange">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium mb-1">
+                      Alerta de sistema
+                    </div>
+                    <div class="caption text-secondary">
+                      Uso de CPU alto - hace 1 hora
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <div class="list-item-icon list-item-icon-purple">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium mb-1">Reporte generado</div>
+                    <div class="caption text-secondary">
+                      Informe mensual - hace 2 horas
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tasks -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex items-center justify-between">
+                <h3 class="headline-md">Tareas pendientes</h3>
+                <span class="badge badge-orange">5</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="flex flex-col gap-3">
+                <label class="form-checkbox">
+                  <input type="checkbox" checked />
+                  <span>Revisar diseños del nuevo feature</span>
+                </label>
+                <label class="form-checkbox">
+                  <input type="checkbox" />
+                  <span>Actualizar documentación de API</span>
+                </label>
+                <label class="form-checkbox">
+                  <input type="checkbox" checked />
+                  <span>Llamada con cliente a las 3pm</span>
+                </label>
+                <label class="form-checkbox">
+                  <input type="checkbox" />
+                  <span>Preparar presentación Q4</span>
+                </label>
+                <label class="form-checkbox">
+                  <input type="checkbox" />
+                  <span>Code review del equipo</span>
+                </label>
+              </div>
+              <button class="btn btn-ghost btn-sm w-full mt-4">
+                + Agregar nueva tarea
+              </button>
+            </div>
+          </div>
+
+          <!-- Team Members -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex items-center justify-between">
+                <h3 class="headline-md">Equipo</h3>
+                <button class="btn btn-ghost btn-sm">Invitar</button>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-blue rounded-full flex items-center justify-center text-white font-semibold"
+                    style="width: 40px; height: 40px"
+                  >
+                    JD
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium">Juan Díaz</div>
+                    <div class="caption text-secondary">Product Manager</div>
+                  </div>
+                  <span class="badge badge-green badge-dot"></span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-purple rounded-full flex items-center justify-center text-white font-semibold"
+                    style="width: 40px; height: 40px"
+                  >
+                    MG
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium">María González</div>
+                    <div class="caption text-secondary">Lead Designer</div>
+                  </div>
+                  <span class="badge badge-green badge-dot"></span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-orange rounded-full flex items-center justify-center text-white font-semibold"
+                    style="width: 40px; height: 40px"
+                  >
+                    CR
+                  </div>
+                  <div class="flex-1">
+                    <div class="body-md font-medium">Carlos Ruiz</div>
+                    <div class="caption text-secondary">Frontend Dev</div>
+                  </div>
+                  <span class="badge badge-gray badge-dot"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       LAYOUT EXAMPLES
+       ============================================ -->
+    <section id="layouts" class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <div class="eyebrow mb-2">Layouts</div>
+          <h2 class="headline-xl mb-3">Ejemplos de layouts</h2>
+          <p class="body-lg text-secondary">
+            Diferentes patrones de layout usando el sistema de grid
+          </p>
+        </div>
+
+        <!-- One column -->
+        <div class="mb-8">
+          <h3 class="headline-md mb-4">Una columna</h3>
+          <div class="grid grid-cols-1 gap-4">
+            <div class="card">
+              <div class="card-content">
+                <h4 class="headline-sm mb-3">Bienvenido a nuestro blog</h4>
+                <p class="body-md mb-4">
+                  En este artículo exploraremos las mejores prácticas para el
+                  diseño de interfaces de usuario modernas. Desde la importancia
+                  de la accesibilidad hasta las tendencias actuales en diseño
+                  móvil.
+                </p>
+                <p class="body-md mb-4">
+                  El diseño de UI/UX no se trata solo de hacer que las cosas se
+                  vean bonitas, sino de crear experiencias que sean intuitivas,
+                  eficientes y agradables para el usuario final.
+                </p>
+                <div class="flex items-center gap-2">
+                  <span class="badge badge-blue">Diseño</span>
+                  <span class="badge badge-green">UX</span>
+                  <span class="caption text-secondary">Hace 2 días</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two columns -->
+        <div class="mb-8">
+          <h3 class="headline-md mb-4">Dos columnas</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="card">
+              <div class="card-content">
+                <h4 class="headline-sm mb-3">Artículo principal</h4>
+                <p class="body-md mb-4">
+                  Este es el contenido principal de la página. Aquí va el
+                  artículo completo, las instrucciones detalladas o cualquier
+                  contenido que necesite más espacio y atención.
+                </p>
+                <p class="body-md mb-4">
+                  Las dos columnas permiten mostrar información relacionada de
+                  manera organizada, manteniendo el flujo de lectura natural.
+                </p>
+                <button class="btn btn-primary btn-sm">Leer más</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <h4 class="headline-sm mb-3">Información relacionada</h4>
+                <div class="mb-4">
+                  <h5 class="body-md font-medium mb-2">Enlaces útiles</h5>
+                  <ul class="body-sm text-secondary space-y-1 ul-list">
+                    <li>
+                      <a href="#" class="text-blue hover:underline"
+                        >Guía de diseño</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue hover:underline"
+                        >Documentación API</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue hover:underline"
+                        >Ejemplos de código</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="body-md font-medium mb-2">Estadísticas</h5>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="text-center">
+                      <div class="headline-sm text-blue">1,234</div>
+                      <div class="caption text-secondary">Visitas</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="headline-sm text-green">89%</div>
+                      <div class="caption text-secondary">Satisfacción</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three columns -->
+        <div class="mb-8">
+          <h3 class="headline-md mb-4">Tres columnas</h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="card card-interactive">
+              <div class="card-visual bg-blue">
+                <svg width="48" height="48" fill="white" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+              </div>
+              <div class="card-content">
+                <h4 class="card-title">Desarrollo rápido</h4>
+                <p class="card-description">
+                  Acelera tu proceso de desarrollo con componentes
+                  pre-construidos y patrones probados.
+                </p>
+              </div>
+            </div>
+            <div class="card card-interactive">
+              <div class="card-visual bg-green">
+                <svg width="48" height="48" fill="white" viewBox="0 0 24 24">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="white"
+                    fill="none"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 6v6l4 2"
+                    stroke="white"
+                    fill="none"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <div class="card-content">
+                <h4 class="card-title">Tiempo real</h4>
+                <p class="card-description">
+                  Monitorea métricas y recibe actualizaciones instantáneas de tu
+                  aplicación.
+                </p>
+              </div>
+            </div>
+            <div class="card card-interactive">
+              <div class="card-visual bg-purple">
+                <svg width="48" height="48" fill="white" viewBox="0 0 24 24">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle
+                    cx="12"
+                    cy="7"
+                    r="4"
+                    stroke="white"
+                    fill="none"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <div class="card-content">
+                <h4 class="card-title">Colaboración</h4>
+                <p class="card-description">
+                  Trabaja en equipo con herramientas integradas de comunicación
+                  y gestión de proyectos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento grid -->
+        <div class="mb-8">
+          <h3 class="headline-md mb-4">Dashboard Principal</h3>
+          <div class="bento-grid">
+            <!-- Hero Principal - Bienvenida y Métricas Clave -->
+            <div class="card bento-item bento-hero">
+              <div class="card-content">
+                <div class="mb-4">
+                  <h4 class="headline-lg mb-2">Bienvenido de vuelta 👋</h4>
+                  <p class="body-md text-secondary">
+                    Aquí tienes un resumen de tu actividad de hoy
+                  </p>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mt-5">
+                  <div class="text-center">
+                    <div class="headline-md text-green mb-1">$52,340</div>
+                    <div class="caption text-secondary">Ingresos totales</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="headline-md text-orange mb-1">3.24%</div>
+                    <div class="caption text-secondary">Tasa conversión</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="headline-md text-purple mb-1">4.8/5</div>
+                    <div class="caption text-secondary">Satisfacción</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tareas Completadas -->
+            <div class="card bento-item bento-square">
+              <div
+                class="card-content text-center flex flex-col justify-center"
+                style="height: 100%"
+              >
+                <div
+                  class="w-14 h-14 bg-blue rounded-full flex items-center justify-center mx-auto mb-3 btn-icon-sm"
+                >
+                  <svg width="28" height="28" fill="white" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                </div>
+                <h4 class="headline-sm mb-2">Tareas</h4>
+                <div class="body-xl text-blue font-semibold mb-1">7/10</div>
+                <div class="caption text-secondary">Completadas hoy</div>
+              </div>
+            </div>
+
+            <!-- Alertas Activas -->
+            <div class="card bento-item bento-square">
+              <div
+                class="card-content text-center flex flex-col justify-center"
+                style="height: 100%"
+              >
+                <div
+                  class="w-14 h-14 bg-red rounded-full flex items-center justify-center mx-auto mb-3 btn-icon-sm"
+                >
+                  <svg width="28" height="28" fill="white" viewBox="0 0 24 24">
+                    <path
+                      d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                    />
+                  </svg>
+                </div>
+                <h4 class="headline-sm mb-2">Alertas</h4>
+                <div class="body-xl text-red font-semibold mb-1">3</div>
+                <div class="caption text-secondary">Requieren atención</div>
+              </div>
+            </div>
+
+            <!-- Actividad Reciente -->
+            <div class="card bento-item bento-hero">
+              <div class="card-content">
+                <div class="flex items-center justify-between mb-4">
+                  <h4 class="headline-sm">Actividad reciente</h4>
+                  <span class="badge badge-blue">En vivo</span>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div
+                      class="w-8 h-8 bg-green-light rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                    >
+                      <div class="w-2.5 h-2.5 bg-green rounded-full"></div>
+                    </div>
+                    <div class="flex-1">
+                      <div class="body-md font-medium mb-1">
+                        Nuevo usuario registrado
+                      </div>
+                      <div class="caption text-secondary">
+                        María González se unió al equipo
+                      </div>
+                      <div class="caption text-tertiary mt-1">
+                        Hace 5 minutos
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div
+                      class="w-8 h-8 bg-blue-light rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                    >
+                      <div class="w-2.5 h-2.5 bg-blue rounded-full"></div>
+                    </div>
+                    <div class="flex-1">
+                      <div class="body-md font-medium mb-1">
+                        Pago procesado exitosamente
+                      </div>
+                      <div class="caption text-secondary">
+                        Factura #2847 - $1,250.00
+                      </div>
+                      <div class="caption text-tertiary mt-1">
+                        Hace 12 minutos
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div
+                      class="w-8 h-8 bg-orange-light rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                    >
+                      <div class="w-2.5 h-2.5 bg-orange rounded-full"></div>
+                    </div>
+                    <div class="flex-1">
+                      <div class="body-md font-medium mb-1">
+                        Alerta del sistema
+                      </div>
+                      <div class="caption text-secondary">
+                        Actualización disponible v2.4.1
+                      </div>
+                      <div class="caption text-tertiary mt-1">Hace 1 hora</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progreso del Proyecto -->
+            <div class="card bento-item bento-wide">
+              <div class="card-content">
+                <div class="flex items-center justify-between mb-4">
+                  <h4 class="headline-sm">Progreso del proyecto</h4>
+                  <span class="caption text-secondary">Fase 2 de 3</span>
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="body-sm font-medium">Diseño UI/UX</span>
+                      <span class="body-sm text-green font-semibold">100%</span>
+                    </div>
+                    <div class="progress">
+                      <div
+                        class="progress-bar progress-bar-green"
+                        style="width: 100%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="body-sm font-medium"
+                        >Desarrollo Frontend</span
+                      >
+                      <span class="body-sm text-blue font-semibold">75%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="body-sm font-medium">Testing & QA</span>
+                      <span class="body-sm text-orange font-semibold">45%</span>
+                    </div>
+                    <div class="progress">
+                      <div
+                        class="progress-bar progress-bar-orange"
+                        style="width: 45%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accesos Rápidos -->
+            <div class="card bento-item bento-wide">
+              <div class="card-content">
+                <h4 class="headline-sm mb-4">Accesos rápidos</h4>
+                <div class="flex flex-wrap gap-3">
+                  <button class="btn btn-primary btn-sm">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                    </svg>
+                    Nuevo proyecto
+                  </button>
+                  <button class="btn btn-secondary btn-sm">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                      />
+                    </svg>
+                    Importar datos
+                  </button>
+                  <button class="btn btn-ghost btn-sm">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                      />
+                    </svg>
+                    Configuración
+                  </button>
+                  <button class="btn btn-ghost btn-sm">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                      />
+                    </svg>
+                    Ayuda
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Estadísticas Rápidas - Usuarios -->
+            <div class="card bento-item bento-square">
+              <div
+                class="card-content text-center flex flex-col justify-center"
+                style="height: 100%"
+              >
+                <div
+                  class="w-14 h-14 bg-purple rounded-full flex items-center justify-center mx-auto mb-3 btn-icon-sm"
+                >
+                  <svg width="28" height="28" fill="white" viewBox="0 0 24 24">
+                    <path
+                      d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+                    />
+                  </svg>
+                </div>
+                <h4 class="headline-sm mb-2">Usuarios</h4>
+                <div class="body-xl text-purple font-semibold mb-1">1,247</div>
+                <div class="caption text-secondary">+12% esta semana</div>
+              </div>
+            </div>
+
+            <!-- Estadísticas Rápidas - Ingresos -->
+            <div class="card bento-item bento-square">
+              <div
+                class="card-content text-center flex flex-col justify-center"
+                style="height: 100%"
+              >
+                <div
+                  class="w-14 h-14 bg-green rounded-full flex items-center justify-center mx-auto mb-3 btn-icon-sm"
+                >
+                  <svg width="28" height="28" fill="white" viewBox="0 0 24 24">
+                    <path
+                      d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"
+                    />
+                  </svg>
+                </div>
+                <h4 class="headline-sm mb-2">Ingresos</h4>
+                <div class="body-xl text-green font-semibold mb-1">$8.4K</div>
+                <div class="caption text-secondary">Últimas 24 horas</div>
+              </div>
+            </div>
+
+            <!-- Rendimiento Semanal -->
+            <div class="card bento-item bento-long">
+              <div class="card-content">
+                <div class="flex items-center justify-between mb-4">
+                  <h4 class="headline-sm">Rendimiento semanal</h4>
+                  <div class="flex gap-2">
+                    <span class="badge badge-green badge-sm">↑ 23%</span>
+                    <span class="caption text-secondary"
+                      >vs. semana anterior</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-end justify-between h-24 gap-2">
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 45%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Lun</div>
+                    <div class="caption text-tertiary">2.1K</div>
+                  </div>
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 65%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Mar</div>
+                    <div class="caption text-tertiary">2.8K</div>
+                  </div>
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 85%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Mié</div>
+                    <div class="caption text-tertiary">3.5K</div>
+                  </div>
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 55%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Jue</div>
+                    <div class="caption text-tertiary">2.4K</div>
+                  </div>
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 75%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Vie</div>
+                    <div class="caption text-tertiary">3.1K</div>
+                  </div>
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 95%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Sáb</div>
+                    <div class="caption text-tertiary">3.9K</div>
+                  </div>
+                  <div class="flex flex-col items-center flex-1">
+                    <div
+                      class="w-full bg-blue rounded-t"
+                      style="height: 70%; max-width: 48px; margin: 0 auto"
+                    ></div>
+                    <div class="caption text-secondary mt-2">Dom</div>
+                    <div class="caption text-tertiary">2.9K</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+    <!-- ============================================
+       BUTTONS SHOWCASE
+       ============================================ -->
+    <section id="components" class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <div class="eyebrow mb-2">Componentes</div>
+          <h2 class="headline-xl mb-3">Botones y acciones</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+          <!-- Button Variants -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-sm">Variantes</h3>
+            </div>
+            <div class="card-content flex flex-col gap-3">
+              <button class="btn btn-primary">Primary Button</button>
+              <button class="btn btn-secondary">Secondary Button</button>
+              <button class="btn btn-tertiary">Tertiary Button</button>
+              <button class="btn btn-ghost">Ghost Button</button>
+              <button class="btn btn-danger">Danger Button</button>
+            </div>
+          </div>
+
+          <!-- Button Sizes -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-sm">Tamaños</h3>
+            </div>
+            <div class="card-content flex flex-col gap-3">
+              <button class="btn btn-primary btn-xl">Extra Large</button>
+              <button class="btn btn-primary btn-lg">Large</button>
+              <button class="btn btn-primary">Default</button>
+              <button class="btn btn-primary btn-sm">Small</button>
+              <button class="btn btn-primary btn-xs">Extra Small</button>
+            </div>
+          </div>
+
+          <!-- Button States -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-sm">Estados</h3>
+            </div>
+            <div class="card-content flex flex-col gap-3">
+              <button class="btn btn-primary">Normal</button>
+              <button class="btn btn-primary" disabled>Disabled</button>
+              <button class="btn btn-icon-lg btn-primary">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+              </button>
+              <div class="btn-group">
+                <button class="btn btn-secondary btn-sm">Aceptar</button>
+                <button class="btn btn-ghost btn-sm">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       CARDS SHOWCASE
+       ============================================ -->
+    <section class="section">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <h2 class="headline-xl mb-3">Tarjetas elegantes</h2>
+          <p class="body-lg text-secondary">
+            Con efectos hover suaves y profesionales
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-5">
+          <div class="card card-interactive">
+            <div class="card-visual bg-blue">
+              <svg width="60" height="60" fill="white" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path
+                  d="M3 9h18M9 21V9"
+                  stroke="white"
+                  fill="none"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Dashboard</h3>
+              <p class="card-description">
+                Visualiza métricas y KPIs importantes en tiempo real con
+                gráficos interactivos.
+              </p>
+              <div class="mt-4">
+                <span class="badge badge-blue">Nuevo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-interactive">
+            <div class="card-visual bg-green">
+              <svg width="60" height="60" fill="white" viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="white"
+                  fill="none"
+                  stroke-width="2"
+                />
+                <path
+                  d="M12 6v6l4 2"
+                  stroke="white"
+                  fill="none"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Automatización</h3>
+              <p class="card-description">
+                Ahorra tiempo automatizando tareas repetitivas y optimiza tu
+                flujo de trabajo.
+              </p>
+              <div class="mt-4">
+                <span class="badge badge-green">Activo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-interactive">
+            <div class="card-visual bg-purple">
+              <svg width="60" height="60" fill="white" viewBox="0 0 24 24">
+                <path
+                  d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                  stroke="white"
+                  fill="none"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="12"
+                  cy="7"
+                  r="4"
+                  stroke="white"
+                  fill="none"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Colaboración</h3>
+              <p class="card-description">
+                Trabaja en equipo con herramientas diseñadas para la
+                colaboración eficiente.
+              </p>
+              <div class="mt-4">
+                <span class="badge badge-purple">Premium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-5 mt-5">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Estadísticas del mes</h3>
+            </div>
+            <div class="card-content">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="caption text-tertiary mb-1">Usuarios activos</div>
+                  <div class="headline-lg text-blue">12,543</div>
+                </div>
+                <div>
+                  <div class="caption text-tertiary mb-1">Ingresos</div>
+                  <div class="headline-lg text-green">$45,231</div>
+                </div>
+                <div>
+                  <div class="caption text-tertiary mb-1">Conversión</div>
+                  <div class="headline-lg text-orange">23.5%</div>
+                </div>
+                <div>
+                  <div class="caption text-tertiary mb-1">Retención</div>
+                  <div class="headline-lg text-purple">87%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="headline-md">Progreso del proyecto</h3>
+                <span class="badge badge-green">En tiempo</span>
+              </div>
+
+              <div class="mb-4">
+                <div class="progress-label">
+                  <span>Diseño</span>
+                  <span>100%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar progress-bar-green"
+                    style="width: 100%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="progress-label">
+                  <span>Desarrollo</span>
+                  <span>75%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="progress-label">
+                  <span>Testing</span>
+                  <span>45%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar progress-bar-orange"
+                    style="width: 45%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================
+       FORMS SHOWCASE
+       ============================================ -->
+    <section id="forms" class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <div class="eyebrow mb-2">Formularios</div>
+          <h2 class="headline-xl mb-3">Inputs elegantes y funcionales</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Contact Form -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Formulario de contacto</h3>
+            </div>
+            <div class="card-content">
+              <form>
+                <div class="form-group">
+                  <label class="form-label form-label-required"
+                    >Nombre completo</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Juan Pérez"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label form-label-required"
+                    >Correo electrónico</label
+                  >
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="juan@ejemplo.com"
+                  />
+                  <span class="form-help"
+                    >Nunca compartiremos tu correo con nadie más.</span
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Empresa</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Acme Inc."
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label form-label-required">Mensaje</label>
+                  <textarea
+                    class="form-input form-textarea"
+                    placeholder="Cuéntanos en qué podemos ayudarte..."
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-checkbox">
+                    <input type="checkbox" />
+                    <span>Acepto los términos y condiciones</span>
+                  </label>
+                </div>
+
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-primary">
+                    Enviar mensaje
+                  </button>
+                  <button type="reset" class="btn btn-ghost">Limpiar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Advanced Form -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Preferencias</h3>
+            </div>
+            <div class="card-content">
+              <form>
+                <div class="form-group">
+                  <label class="form-label">País</label>
+                  <select class="form-input form-select">
+                    <option>Selecciona un país</option>
+                    <option>México</option>
+                    <option>Estados Unidos</option>
+                    <option>España</option>
+                    <option>Argentina</option>
+                    <option>Colombia</option>
+                    <option>Chile</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Tipo de plan</label>
+                  <div class="flex flex-col gap-2">
+                    <label class="form-radio">
+                      <input type="radio" name="plan" checked />
+                      <span>Plan Básico - Gratis</span>
+                    </label>
+                    <label class="form-radio">
+                      <input type="radio" name="plan" />
+                      <span>Plan Pro - $19/mes</span>
+                    </label>
+                    <label class="form-radio">
+                      <input type="radio" name="plan" />
+                      <span>Plan Enterprise - $99/mes</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Presupuesto mensual</label>
+                  <div class="input-group">
+                    <span class="input-group-prepend">$</span>
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="1000"
+                    />
+                    <span class="input-group-append">USD</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Intereses</label>
+                  <div class="flex flex-col gap-2">
+                    <label class="form-checkbox">
+                      <input type="checkbox" checked />
+                      <span>Desarrollo web</span>
+                    </label>
+                    <label class="form-checkbox">
+                      <input type="checkbox" />
+                      <span>Diseño UI/UX</span>
+                    </label>
+                    <label class="form-checkbox">
+                      <input type="checkbox" checked />
+                      <span>Marketing digital</span>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">
+                  Guardar cambios
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Form with Error States -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Validación de formulario</h3>
+            </div>
+            <div class="card-content">
+              <div class="form-group">
+                <label class="form-label">Email válido</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  value="usuario@ejemplo.com"
+                />
+                <span class="form-help">✓ Este campo es válido</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email con error</label>
+                <input
+                  type="email"
+                  class="form-input form-input-error"
+                  value="correo-invalido"
+                />
+                <span class="form-error"
+                  >Por favor ingresa un correo válido</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Campo deshabilitado</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  value="No editable"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Switch Controls -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="headline-md">Controles tipo iOS</h3>
+            </div>
+            <div class="card-content">
+              <div class="flex flex-col gap-4">
+                <label class="switch-label">
+                  <span>
+                    <div class="font-medium">Notificaciones push</div>
+                    <div class="caption text-secondary">
+                      Recibe alertas en tiempo real
+                    </div>
+                  </span>
+                  <div class="switch">
+                    <input type="checkbox" class="switch-input" checked />
+                    <span class="switch-slider"></span>
+                  </div>
+                </label>
+
+                <hr class="divider" />
+
+                <label class="switch-label">
+                  <span>
+                    <div class="font-medium">Modo oscuro</div>
+                    <div class="caption text-secondary">
+                      Tema oscuro para la interfaz
+                    </div>
+                  </span>
+                  <div class="switch">
+                    <input type="checkbox" class="switch-input" />
+                    <span class="switch-slider"></span>
+                  </div>
+                </label>
+
+                <hr class="divider" />
+
+                <label class="switch-label">
+                  <span>
+                    <div class="font-medium">Sincronización automática</div>
+                    <div class="caption text-secondary">
+                      Sincroniza datos en la nube
+                    </div>
+                  </span>
+                  <div class="switch">
+                    <input type="checkbox" class="switch-input" checked />
+                    <span class="switch-slider"></span>
+                  </div>
+                </label>
+
+                <hr class="divider" />
+
+                <label class="switch-label">
+                  <span>
+                    <div class="font-medium">Compartir analytics</div>
+                    <div class="caption text-secondary">
+                      Ayúdanos a mejorar el producto
+                    </div>
+                  </span>
+                  <div class="switch">
+                    <input type="checkbox" class="switch-input" />
+                    <span class="switch-slider"></span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       LIST GROUPS (iOS Style)
+       ============================================ -->
+    <section class="section">
+      <div class="container-lg">
+        <div class="text-center mb-8">
+          <h2 class="headline-xl mb-3">Listas estilo iOS</h2>
+          <p class="body-lg text-secondary">Organizadas y elegantes</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div class="bg-tertiary rounded-lg" style="padding: 1.5rem">
+            <div class="list-group">
+              <a href="#" class="list-item">
+                <div class="list-item-icon list-item-icon-blue">
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                </div>
+                <div class="list-item-content">
+                  <div class="list-item-title">General</div>
+                  <div class="list-item-subtitle">
+                    Configuración general de la app
+                  </div>
+                </div>
+                <svg
+                  class="list-item-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </a>
+
+              <a href="#" class="list-item">
+                <div class="list-item-icon list-item-icon-green">
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                    />
+                  </svg>
+                </div>
+                <div class="list-item-content">
+                  <div class="list-item-title">Notificaciones</div>
+                  <div class="list-item-subtitle">Alertas y sonidos</div>
+                </div>
+                <svg
+                  class="list-item-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </a>
+
+              <a href="#" class="list-item">
+                <div class="list-item-icon list-item-icon-purple">
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                    />
+                  </svg>
+                </div>
+                <div class="list-item-content">
+                  <div class="list-item-title">Privacidad y seguridad</div>
+                  <div class="list-item-subtitle">Gestiona tu privacidad</div>
+                </div>
+                <svg
+                  class="list-item-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </a>
+
+              <a href="#" class="list-item">
+                <div class="list-item-icon list-item-icon-orange">
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                    />
+                  </svg>
+                </div>
+                <div class="list-item-content">
+                  <div class="list-item-title">Configuración avanzada</div>
+                  <div class="list-item-subtitle">
+                    Opciones para usuarios expertos
+                  </div>
+                </div>
+                <svg
+                  class="list-item-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-tertiary rounded-lg" style="padding: 1.5rem">
+            <div class="list-group">
+              <div class="list-item">
+                <div class="list-item-content">
+                  <div class="list-item-title">Wi-Fi</div>
+                </div>
+                <span class="list-item-value list-item-value-accent"
+                  >Mi Red</span
+                >
+              </div>
+
+              <div class="list-item">
+                <div class="list-item-content">
+                  <div class="list-item-title">Bluetooth</div>
+                </div>
+                <span class="list-item-value">Desactivado</span>
+              </div>
+
+              <div class="list-item">
+                <div class="list-item-content">
+                  <div class="list-item-title">Datos móviles</div>
+                </div>
+                <span class="list-item-value">2.4 GB</span>
+              </div>
+
+              <div class="list-item">
+                <label class="switch-label full-w">
+                  <div class="list-item-content">
+                    <div class="list-item-title">Modo avión</div>
+                  </div>
+                  <div class="switch">
+                    <input type="checkbox" class="switch-input" />
+                    <span class="switch-slider"></span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="list-item">
+                <label class="switch-label full-w">
+                  <div class="list-item-content">
+                    <div class="list-item-title">Ahorro de batería</div>
+                  </div>
+                  <div class="switch">
+                    <input type="checkbox" class="switch-input" checked />
+                    <span class="switch-slider"></span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================
+       Hero Examples
+       ============================================ -->
+    <section class="section">
+      <div class="container-lg">
+        <!---->
+      </div>
+    </section>
+
+    <section
+      id="hero-minimal"
+      class="section-xl"
+      style="background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%)"
+    >
+      <div class="container-lg">
+        <div class="grid grid-cols-2 gap-8 items-center">
+          <div class="animate-slide-up">
+            <div class="eyebrow text-blue mb-3">Innovación 2025</div>
+            <h1 class="display-lg mb-4">El futuro del<br />diseño está aquí</h1>
+            <p class="body-xl text-secondary mb-6" style="max-width: 520px">
+              Crea experiencias excepcionales con nuestro sistema de diseño.
+              Potente, flexible y hermoso.
+            </p>
+            <div class="flex gap-3">
+              <button class="btn btn-primary btn-lg">Explorar ahora</button>
+              <button class="btn btn-ghost btn-lg">Ver demo →</button>
+            </div>
+          </div>
+          <div class="animate-slide-up animate-delay-2">
+            <div
+              class="card"
+              style="
+                height: 400px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border: none;
+              "
+            >
+              <div
+                class="card-content flex items-center justify-center"
+                style="height: 100%"
+              >
+                <div class="text-center text-inverse">
+                  <svg
+                    width="120"
+                    height="120"
+                    fill="white"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    />
+                  </svg>
+                  <div class="headline-md mt-4">Vista previa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+    <section id="hero-stats" class="section-xl bg-primary">
+      <div class="container-lg text-center">
+        <div class="eyebrow text-blue mb-3 animate-fade-in">
+          Más de 10,000 equipos confían en nosotros
+        </div>
+        <h1 class="display-lg mb-4 animate-fade-in animate-delay-1">
+          Construye productos<br />increíbles, más rápido
+        </h1>
+        <p
+          class="body-xl text-secondary mb-8 mx-auto animate-fade-in animate-delay-2"
+          style="max-width: 650px"
+        >
+          Sistema de diseño completo con componentes listos para usar. Ahorra
+          tiempo y mantén la consistencia en todos tus proyectos.
+        </p>
+        <div class="btn-group mb-10 animate-fade-in animate-delay-3">
+          <button class="btn btn-primary btn-lg">Comenzar gratis</button>
+          <button class="btn btn-secondary btn-lg">Ver casos de éxito</button>
+        </div>
+
+        <!-- Estadísticas -->
+        <div style="margin-top: 50px"></div>
+        <div
+          class="grid grid-cols-3 gap-6 mt-8 animate-fade-in animate-delay-4"
+          style="max-width: 800px; margin: 0 auto"
+        >
+          <div class="card card-compact">
+            <div class="card-content text-center">
+              <div class="headline-xl text-blue mb-2">50+</div>
+              <div class="body-md text-secondary">Componentes</div>
+            </div>
+          </div>
+          <div class="card card-compact">
+            <div class="card-content text-center">
+              <div class="headline-xl text-green mb-2">99.9%</div>
+              <div class="body-md text-secondary">Uptime</div>
+            </div>
+          </div>
+          <div class="card card-compact">
+            <div class="card-content text-center">
+              <div class="headline-xl text-purple mb-2">10K+</div>
+              <div class="body-md text-secondary">Usuarios</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="divider" />
+
+    <hr class="divider" />
+    <!-- ============================================
+       FOOTER
+       ============================================ -->
+    <footer class="section bg-secondary">
+      <div class="container-lg">
+        <div class="text-center">
+          <div class="headline-md mb-3">Klef Design System</div>
+          <p class="body-md text-secondary mb-6">
+            Construido con atención al detalle y amor por el diseño
+          </p>
+          <div class="flex justify-center gap-4 mb-6">
+            <a href="#" class="btn btn-ghost btn-sm">Documentación</a>
+            <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
+            <a href="#" class="btn btn-ghost btn-sm">Licencia</a>
+          </div>
+          <div class="caption text-tertiary">
+            © 2026 Klef Design System. Todos los derechos reservados.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================
+       JAVASCRIPT FOR INTERACTIVITY
+       ============================================ -->
+    <script>
+      // Accordion functionality
+      document.querySelectorAll(".accordion-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const item = header.parentElement;
+          const wasActive = item.classList.contains("active");
+
+          // Close all items
+          document.querySelectorAll(".accordion-item").forEach((i) => {
+            i.classList.remove("active");
+          });
+
+          // Open clicked item if it wasn't active
+          if (!wasActive) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Tab functionality
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const parent = tab.closest(".card");
+
+          // Remove active from all tabs and contents
+          parent
+            .querySelectorAll(".tab")
+            .forEach((t) => t.classList.remove("active"));
+          parent
+            .querySelectorAll(".tab-content")
+            .forEach((c) => c.classList.remove("active"));
+
+          // Add active to clicked tab and corresponding content
+          tab.classList.add("active");
+          const index = Array.from(parent.querySelectorAll(".tab")).indexOf(
+            tab
+          );
+          parent
+            .querySelectorAll(".tab-content")
+            [index].classList.add("active");
+        });
+      });
+
+      // Dropdown functionality
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        const btn = dropdown.querySelector(".btn");
+
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle("active");
+        });
+
+        // Close when clicking outside
+        document.addEventListener("click", () => {
+          dropdown.classList.remove("active");
+        });
+      });
+
+      // Alert close functionality
+      document.querySelectorAll(".alert-close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.closest(".alert").style.display = "none";
+        });
+      });
+
+      // Smooth scroll for nav links
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Update active state
+            document
+              .querySelectorAll(".nav-link")
+              .forEach((l) => l.classList.remove("active"));
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Mobile nav toggle
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          navToggle.classList.toggle("active");
+          navLinks.classList.toggle("active");
+        });
+      }
+    </script>
+  </body>
+</html>

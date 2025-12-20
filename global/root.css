@@ -1,7 +1,7 @@
 /* ============================================
        DESIGN TOKENS
        ============================================ */
-:root {
+.root {
   /* Colors */
   --color-primary: #007aff;
   --color-primary-dark: #0066d6;
@@ -68,6 +68,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
+}
+
+* {
+  transition: all 0.3s ease;
 }
 
 body {
@@ -200,4 +205,225 @@ body {
   --tw-contain-layout: ;
   --tw-contain-paint: ;
   --tw-contain-style: ;
+}
+
+/**/
+
+@font-face {
+  font-family: "Monaspace";
+  src: url("https://assets.codepen.io/2585/MonaspaceKrypton-SyntaxHighlighter-Regular.woff2")
+    format("woff2");
+}
+
+/* ============ KUNG FURY (Original) ============ */
+@font-palette-values --kung-fury {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(225 100% 40%),
+    /* curlies and tags */ 1 hsl(250 100% 80%), /* ? */ 2 hsl(225 100% 40%),
+    /* function */ 3 hsl(225 100% 40%), /* ? */ 4 hsl(270 50% 40%),
+    /* () */ 5 hsl(210 40% 2%), /* property name */ 6 hsl(210 10% 30%),
+    /* ? */ 7 hsl(327 100% 54%) /* numbers */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --kung-fury {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(188 100% 75%),
+      /* curlies and tags */ 1 hsl(250 100% 80%), /* ? */ 2 hsl(188 100% 75%),
+      /* function */ 3 hsl(188 100% 75%), /* ? */ 4 hsl(250 100% 80%),
+      /* () */ 5 hsl(210 40% 98%), /* property name */ 6 hsl(210 40% 80%),
+      /* ? */ 7 hsl(300 100% 80%) /* numbers */;
+  }
+}
+
+/* ============ NORD ============ */
+@font-palette-values --nord {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(193 43% 67%),
+    /* curlies and tags - frost */ 1 hsl(179 25% 65%),
+    /* ? - frost */ 2 hsl(193 43% 67%), /* function */ 3 hsl(193 43% 67%),
+    /* ? */ 4 hsl(311 20% 63%), /* () - aurora purple */ 5 hsl(220 16% 22%),
+    /* property name - polar night */ 6 hsl(220 16% 36%),
+    /* ? */ 7 hsl(14 51% 63%) /* numbers - aurora orange */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --nord {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(179 25% 65%),
+      /* curlies and tags */ 1 hsl(193 43% 67%), /* ? */ 2 hsl(179 25% 65%),
+      /* function */ 3 hsl(179 25% 65%), /* ? */ 4 hsl(311 20% 63%),
+      /* () */ 5 hsl(218 27% 94%),
+      /* property name - snow storm */ 6 hsl(218 27% 84%),
+      /* ? */ 7 hsl(354 42% 56%) /* numbers - aurora red */;
+  }
+}
+
+/* ============ DRACULA ============ */
+@font-palette-values --dracula {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(326 100% 74%),
+    /* curlies and tags - pink */ 1 hsl(265 89% 78%),
+    /* ? - purple */ 2 hsl(326 100% 74%),
+    /* function - pink */ 3 hsl(326 100% 74%), /* ? */ 4 hsl(191 97% 77%),
+    /* () - cyan */ 5 hsl(230 15% 30%),
+    /* property name - dark */ 6 hsl(230 15% 40%),
+    /* ? */ 7 hsl(65 92% 76%) /* numbers - yellow */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --dracula {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(326 100% 74%),
+      /* curlies and tags */ 1 hsl(265 89% 78%), /* ? */ 2 hsl(326 100% 74%),
+      /* function */ 3 hsl(326 100% 74%), /* ? */ 4 hsl(191 97% 77%),
+      /* () */ 5 hsl(60 30% 96%),
+      /* property name - foreground */ 6 hsl(60 30% 86%),
+      /* ? */ 7 hsl(65 92% 76%) /* numbers */;
+  }
+}
+
+/* ============ TOKYO NIGHT ============ */
+@font-palette-values --tokyo-night {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(267 84% 81%),
+    /* curlies and tags - purple */ 1 hsl(199 89% 48%),
+    /* ? - blue */ 2 hsl(267 84% 81%), /* function */ 3 hsl(267 84% 81%),
+    /* ? */ 4 hsl(187 47% 55%), /* () - cyan */ 5 hsl(220 15% 25%),
+    /* property name - dark */ 6 hsl(220 15% 35%),
+    /* ? */ 7 hsl(10 79% 70%) /* numbers - orange */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --tokyo-night {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(267 84% 81%),
+      /* curlies and tags */ 1 hsl(199 89% 48%), /* ? */ 2 hsl(267 84% 81%),
+      /* function */ 3 hsl(267 84% 81%), /* ? */ 4 hsl(187 47% 55%),
+      /* () */ 5 hsl(210 20% 98%),
+      /* property name - foreground */ 6 hsl(210 20% 85%),
+      /* ? */ 7 hsl(10 79% 70%) /* numbers */;
+  }
+}
+
+/* ============ MONOKAI ============ */
+@font-palette-values --monokai {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(326 100% 68%),
+    /* curlies and tags - pink */ 1 hsl(81 88% 68%),
+    /* ? - green */ 2 hsl(326 100% 68%), /* function */ 3 hsl(326 100% 68%),
+    /* ? */ 4 hsl(191 97% 77%), /* () - cyan */ 5 hsl(70 8% 20%),
+    /* property name - dark */ 6 hsl(70 8% 30%),
+    /* ? */ 7 hsl(274 100% 75%) /* numbers - purple */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --monokai {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(326 100% 68%),
+      /* curlies and tags */ 1 hsl(81 88% 68%), /* ? */ 2 hsl(326 100% 68%),
+      /* function */ 3 hsl(326 100% 68%), /* ? */ 4 hsl(191 97% 77%),
+      /* () */ 5 hsl(60 30% 96%), /* property name */ 6 hsl(60 30% 86%),
+      /* ? */ 7 hsl(274 100% 75%) /* numbers */;
+  }
+}
+
+/* ============ SOLARIZED ============ */
+@font-palette-values --solarized {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(205 69% 49%),
+    /* curlies and tags - blue */ 1 hsl(68 100% 30%),
+    /* ? - green */ 2 hsl(205 69% 49%), /* function */ 3 hsl(205 69% 49%),
+    /* ? */ 4 hsl(175 59% 40%), /* () - cyan */ 5 hsl(192 81% 14%),
+    /* property name - dark */ 6 hsl(192 81% 24%),
+    /* ? */ 7 hsl(1 79% 55%) /* numbers - red */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --solarized {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(205 69% 49%),
+      /* curlies and tags */ 1 hsl(68 100% 30%), /* ? */ 2 hsl(205 69% 49%),
+      /* function */ 3 hsl(205 69% 49%), /* ? */ 4 hsl(175 59% 40%),
+      /* () */ 5 hsl(44 87% 94%), /* property name - light */ 6 hsl(44 87% 84%),
+      /* ? */ 7 hsl(1 79% 55%) /* numbers */;
+  }
+}
+
+/* ============ GRUVBOX ============ */
+@font-palette-values --gruvbox {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(142 25% 50%),
+    /* curlies and tags - green */ 1 hsl(180 25% 50%),
+    /* ? - aqua */ 2 hsl(142 25% 50%), /* function */ 3 hsl(142 25% 50%),
+    /* ? */ 4 hsl(24 56% 50%), /* () - orange */ 5 hsl(45 25% 25%),
+    /* property name - dark */ 6 hsl(45 25% 35%),
+    /* ? */ 7 hsl(327 50% 50%) /* numbers - purple */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --gruvbox {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(142 34% 74%),
+      /* curlies and tags */ 1 hsl(180 34% 74%), /* ? */ 2 hsl(142 34% 74%),
+      /* function */ 3 hsl(142 34% 74%), /* ? */ 4 hsl(24 56% 70%),
+      /* () */ 5 hsl(45 25% 90%), /* property name */ 6 hsl(45 25% 80%),
+      /* ? */ 7 hsl(327 50% 75%) /* numbers */;
+  }
+}
+
+/* ============ NIGHT OWL ============ */
+@font-palette-values --night-owl {
+  font-family: "Monaspace";
+  override-colors: 0 hsl(207 82% 66%),
+    /* curlies and tags - blue */ 1 hsl(286 60% 67%),
+    /* ? - purple */ 2 hsl(207 82% 66%), /* function */ 3 hsl(207 82% 66%),
+    /* ? */ 4 hsl(171 41% 52%), /* () - teal */ 5 hsl(210 50% 20%),
+    /* property name - dark */ 6 hsl(210 50% 30%),
+    /* ? */ 7 hsl(2 89% 69%) /* numbers - red */;
+}
+
+@media (prefers-color-scheme: dark) {
+  @font-palette-values --night-owl {
+    font-family: "Monaspace";
+    override-colors: 0 hsl(207 82% 66%),
+      /* curlies and tags */ 1 hsl(286 60% 67%), /* ? */ 2 hsl(207 82% 66%),
+      /* function */ 3 hsl(207 82% 66%), /* ? */ 4 hsl(171 41% 52%),
+      /* () */ 5 hsl(218 28% 88%), /* property name */ 6 hsl(218 28% 78%),
+      /* ? */ 7 hsl(2 89% 69%) /* numbers */;
+  }
+}
+
+code,
+.code {
+  font-family: "Monaspace", sans-serif !important;
+}
+
+pre {
+  min-width: 0;
+  overflow-x: auto;
+  padding: 2ch;
+}
+
+/* Para aplicar un esquema específico */
+.theme-nord.code {
+  font-palette: --nord;
+}
+.theme-dracula.code {
+  font-palette: --dracula;
+}
+.theme-tokyo-night.code {
+  font-palette: --tokyo-night;
+}
+.theme-monokai.code {
+  font-palette: --monokai;
+}
+.theme-solarized.code {
+  font-palette: --solarized;
+}
+.theme-gruvbox.code {
+  font-palette: --gruvbox;
+}
+.theme-night-owl.code {
+  font-palette: --night-owl;
 }

@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System - Inspired by Apple</title>
+    <style>
+      /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+      :root {
+        /* Colors */
+        --blue: #0071e3;
+        --blue-hover: #0077ed;
+        --green: #30d158;
+        --orange: #ff9f0a;
+        --red: #ff453a;
+        --purple: #bf5af2;
+        --pink: #ff375f;
+
+        /* Neutrals */
+        --gray-1: #1d1d1f;
+        --gray-2: #424245;
+        --gray-3: #6e6e73;
+        --gray-4: #86868b;
+        --gray-5: #d2d2d7;
+        --gray-6: #f5f5f7;
+        --gray-7: #fafafa;
+
+        /* Typography */
+        --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+          "SF Pro Text", sans-serif;
+
+        /* Spacing */
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 24px;
+        --space-6: 32px;
+        --space-7: 48px;
+        --space-8: 64px;
+        --space-9: 96px;
+
+        /* Radius */
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 18px;
+        --radius-xl: 24px;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04),
+          0 1px 2px rgba(0, 0, 0, 0.02);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.04),
+          0 2px 4px rgba(0, 0, 0, 0.02);
+        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05),
+          0 4px 6px rgba(0, 0, 0, 0.02);
+        --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.06),
+          0 10px 10px rgba(0, 0, 0, 0.02);
+
+        /* Timing */
+        --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* ============================================
+       BASE STYLES
+       ============================================ */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: var(--font-system);
+        background: #fff;
+        color: var(--gray-1);
+        line-height: 1.47059;
+        font-size: 17px;
+        font-weight: 400;
+        letter-spacing: -0.022em;
+      }
+
+      /* ============================================
+       NAVIGATION
+       ============================================ */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-content {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+      }
+
+      .nav-logo {
+        font-size: 21px;
+        font-weight: 600;
+        color: var(--gray-1);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: var(--space-6);
+        list-style: none;
+      }
+
+      .nav-link {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--gray-1);
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.15s ease;
+      }
+
+      .nav-link:hover {
+        opacity: 1;
+      }
+
+      /* ============================================
+       HERO SECTION
+       ============================================ */
+      .hero {
+        padding: var(--space-9) var(--space-5) var(--space-8);
+        text-align: center;
+        background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+      }
+
+      .hero-eyebrow {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--blue);
+        margin-bottom: var(--space-3);
+        letter-spacing: 0.01em;
+      }
+
+      .hero-title {
+        font-size: 80px;
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        color: var(--gray-1);
+        margin-bottom: var(--space-4);
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-subtitle {
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1.14286;
+        letter-spacing: 0.007em;
+        color: var(--gray-3);
+        margin-bottom: var(--space-6);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* ============================================
+       BUTTONS
+       ============================================ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: 12px 22px;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.17648;
+        letter-spacing: -0.022em;
+        border-radius: 980px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s var(--ease-out);
+        font-family: inherit;
+      }
+
+      .btn-primary {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: var(--blue-hover);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--blue);
+        border: 1px solid var(--blue);
+      }
+
+      .btn-secondary:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .btn-large {
+        padding: 16px 28px;
+        font-size: 21px;
+      }
+
+      .btn-small {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      /* ============================================
+       SECTION
+       ============================================ */
+      .section {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: var(--space-8) var(--space-5);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: var(--space-7);
+      }
+
+      .section-eyebrow {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gray-3);
+        margin-bottom: var(--space-2);
+      }
+
+      .section-title {
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 1.08349;
+        letter-spacing: -0.003em;
+        color: var(--gray-1);
+        margin-bottom: var(--space-3);
+      }
+
+      .section-description {
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.381;
+        letter-spacing: 0.011em;
+        color: var(--gray-3);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* ============================================
+       GRID
+       ============================================ */
+      .grid {
+        display: grid;
+        gap: var(--space-5);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      /* ============================================
+       CARDS
+       ============================================ */
+      .card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        transition: all 0.3s var(--ease-out);
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .card-content {
+        padding: var(--space-5);
+      }
+
+      .card-title {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.16667;
+        letter-spacing: 0.009em;
+        color: var(--gray-1);
+        margin-bottom: var(--space-2);
+      }
+
+      .card-description {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.47059;
+        letter-spacing: -0.022em;
+        color: var(--gray-3);
+      }
+
+      .card-visual {
+        height: 200px;
+        background: var(--gray-6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-5);
+      }
+
+      /* ============================================
+       TYPOGRAPHY EXAMPLES
+       ============================================ */
+      .typography-sample {
+        padding: var(--space-6);
+        background: #fff;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .display-large {
+        font-size: 80px;
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+      }
+
+      .display-medium {
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 1.0625;
+        letter-spacing: -0.009em;
+      }
+
+      .display-small {
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 1.08349;
+        letter-spacing: -0.003em;
+      }
+
+      .headline-large {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .headline-medium {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.125;
+        letter-spacing: 0.004em;
+      }
+
+      .headline-small {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.14286;
+        letter-spacing: 0.007em;
+      }
+
+      .body-large {
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.381;
+        letter-spacing: 0.011em;
+      }
+
+      .body-medium {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.47059;
+        letter-spacing: -0.022em;
+      }
+
+      .body-small {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42859;
+        letter-spacing: -0.016em;
+      }
+
+      .caption {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.33337;
+        letter-spacing: 0;
+      }
+
+      /* ============================================
+       COLOR PALETTE
+       ============================================ */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: var(--space-4);
+      }
+
+      .color-swatch {
+        aspect-ratio: 1;
+        border-radius: var(--radius-md);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .color-name {
+        margin-top: var(--space-2);
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      /* ============================================
+       FORMS
+       ============================================ */
+      .form-group {
+        margin-bottom: var(--space-5);
+      }
+
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gray-2);
+        margin-bottom: var(--space-2);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 17px;
+        font-family: inherit;
+        color: var(--gray-1);
+        background: #fff;
+        border: 1px solid var(--gray-5);
+        border-radius: var(--radius-sm);
+        transition: all 0.2s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--blue);
+        box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+      }
+
+      .form-input::placeholder {
+        color: var(--gray-4);
+      }
+
+      .form-textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .form-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%2386868b' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        padding-right: 40px;
+      }
+
+      /* ============================================
+       CHECKBOX & RADIO
+       ============================================ */
+      .form-checkbox,
+      .form-radio {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        cursor: pointer;
+      }
+
+      .form-checkbox input,
+      .form-radio input {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        accent-color: var(--blue);
+      }
+
+      /* ============================================
+       BADGES
+       ============================================ */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .badge-blue {
+        background: rgba(0, 113, 227, 0.1);
+        color: var(--blue);
+      }
+
+      .badge-green {
+        background: rgba(48, 209, 88, 0.1);
+        color: var(--green);
+      }
+
+      .badge-orange {
+        background: rgba(255, 159, 10, 0.1);
+        color: var(--orange);
+      }
+
+      .badge-red {
+        background: rgba(255, 69, 58, 0.1);
+        color: var(--red);
+      }
+
+      /* ============================================
+       DIVIDER
+       ============================================ */
+      .divider {
+        height: 1px;
+        background: rgba(0, 0, 0, 0.08);
+        margin: var(--space-6) 0;
+      }
+
+      /* ============================================
+       COMPONENT SHOWCASE
+       ============================================ */
+      .showcase-item {
+        padding: var(--space-6);
+        background: #fff;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .showcase-title {
+        font-size: 21px;
+        font-weight: 600;
+        color: var(--gray-1);
+        margin-bottom: var(--space-4);
+      }
+
+      .showcase-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        align-items: center;
+      }
+
+      .code-snippet {
+        margin-top: var(--space-4);
+        padding: var(--space-4);
+        background: var(--gray-7);
+        border-radius: var(--radius-sm);
+        font-family: "SF Mono", Monaco, monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--gray-2);
+        overflow-x: auto;
+      }
+
+      /* ============================================
+       RESPONSIVE
+       ============================================ */
+      @media (max-width: 734px) {
+        .hero-title {
+          font-size: 48px;
+        }
+
+        .hero-subtitle {
+          font-size: 21px;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+
+      /* ============================================
+       ANIMATIONS
+       ============================================ */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-in {
+        animation: fadeIn 0.6s var(--ease-out) backwards;
+      }
+
+      .animate-delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .animate-delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .animate-delay-3 {
+        animation-delay: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-content">
+        <a href="#" class="nav-logo">Design System</a>
+        <ul class="nav-links">
+          <li><a href="#colors" class="nav-link">Colors</a></li>
+          <li><a href="#typography" class="nav-link">Typography</a></li>
+          <li><a href="#components" class="nav-link">Components</a></li>
+          <li><a href="#forms" class="nav-link">Forms</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-eyebrow animate-in">New Design System</div>
+      <h1 class="hero-title animate-in animate-delay-1">
+        Beautiful design.<br />By design.
+      </h1>
+      <p class="hero-subtitle animate-in animate-delay-2">
+        Un sistema de diseño profesional inspirado en los principios de Apple.
+        Limpio, elegante y fácil de usar.
+      </p>
+      <div class="hero-cta animate-in animate-delay-3">
+        <a href="#" class="btn btn-primary btn-large">Comenzar</a>
+        <a href="#" class="btn btn-secondary btn-large">Ver documentación</a>
+      </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section class="section" id="colors">
+      <div class="section-header">
+        <div class="section-eyebrow">Paleta de colores</div>
+        <h2 class="section-title">Colores vibrantes y versátiles</h2>
+        <p class="section-description">
+          Una paleta cuidadosamente seleccionada que funciona perfectamente en
+          cualquier contexto.
+        </p>
+      </div>
+
+      <div class="color-grid">
+        <div class="color-swatch" style="background: var(--blue)">
+          Blue
+          <div class="color-name">#0071e3</div>
+        </div>
+        <div class="color-swatch" style="background: var(--green)">
+          Green
+          <div class="color-name">#30d158</div>
+        </div>
+        <div class="color-swatch" style="background: var(--orange)">
+          Orange
+          <div class="color-name">#ff9f0a</div>
+        </div>
+        <div class="color-swatch" style="background: var(--red)">
+          Red
+          <div class="color-name">#ff453a</div>
+        </div>
+        <div class="color-swatch" style="background: var(--purple)">
+          Purple
+          <div class="color-name">#bf5af2</div>
+        </div>
+        <div class="color-swatch" style="background: var(--pink)">
+          Pink
+          <div class="color-name">#ff375f</div>
+        </div>
+        <div class="color-swatch" style="background: var(--gray-1)">
+          Gray 1
+          <div class="color-name">#1d1d1f</div>
+        </div>
+        <div class="color-swatch" style="background: var(--gray-3)">
+          Gray 3
+          <div class="color-name">#6e6e73</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Typography Section -->
+    <section class="section" id="typography">
+      <div class="section-header">
+        <div class="section-eyebrow">Tipografía</div>
+        <h2 class="section-title">Perfectamente legible</h2>
+        <p class="section-description">
+          Escala tipográfica basada en SF Pro, optimizada para legibilidad en
+          todas las plataformas.
+        </p>
+      </div>
+
+      <div class="typography-sample">
+        <h1 class="display-large" style="margin-bottom: var(--space-4)">
+          Display Large
+        </h1>
+        <h2 class="display-medium" style="margin-bottom: var(--space-4)">
+          Display Medium
+        </h2>
+        <h3 class="display-small" style="margin-bottom: var(--space-4)">
+          Display Small
+        </h3>
+        <h4 class="headline-large" style="margin-bottom: var(--space-4)">
+          Headline Large
+        </h4>
+        <h5 class="headline-medium" style="margin-bottom: var(--space-4)">
+          Headline Medium
+        </h5>
+        <h6 class="headline-small" style="margin-bottom: var(--space-4)">
+          Headline Small
+        </h6>
+        <p
+          class="body-large"
+          style="margin-bottom: var(--space-3); color: var(--gray-3)"
+        >
+          Body Large - Ideal para subtítulos y descripciones importantes que
+          necesitan destacar sin ser un título principal.
+        </p>
+        <p
+          class="body-medium"
+          style="margin-bottom: var(--space-3); color: var(--gray-3)"
+        >
+          Body Medium - El tamaño estándar para la mayoría del contenido.
+          Perfectamente legible en cualquier dispositivo.
+        </p>
+        <p
+          class="body-small"
+          style="margin-bottom: var(--space-3); color: var(--gray-3)"
+        >
+          Body Small - Útil para texto secundario, notas al pie y detalles
+          adicionales.
+        </p>
+        <p class="caption" style="color: var(--gray-4)">
+          Caption - Para metadatos, timestamps y etiquetas pequeñas.
+        </p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Buttons Section -->
+    <section class="section" id="components">
+      <div class="section-header">
+        <div class="section-eyebrow">Componentes</div>
+        <h2 class="section-title">Botones</h2>
+      </div>
+
+      <div class="grid">
+        <div class="showcase-item">
+          <div class="showcase-title">Tamaños</div>
+          <div
+            class="showcase-content"
+            style="flex-direction: column; align-items: stretch"
+          >
+            <button class="btn btn-primary btn-large">Large Button</button>
+            <button class="btn btn-primary">Default Button</button>
+            <button class="btn btn-primary btn-small">Small Button</button>
+          </div>
+          <div class="code-snippet">.btn .btn-primary .btn-large</div>
+        </div>
+
+        <div class="showcase-item">
+          <div class="showcase-title">Variantes</div>
+          <div
+            class="showcase-content"
+            style="flex-direction: column; align-items: stretch"
+          >
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+          </div>
+          <div class="code-snippet">
+            .btn .btn-primary<br />.btn .btn-secondary
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Cards</h2>
+        <p class="section-description">
+          Tarjetas elegantes con efectos de hover suaves.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-visual">
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18" />
+              <path d="M9 21V9" />
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Feature One</h3>
+            <p class="card-description">
+              Una descripción concisa de esta característica importante.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-visual">
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Feature Two</h3>
+            <p class="card-description">
+              Otra característica destacada con su propia descripción.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-visual">
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Feature Three</h3>
+            <p class="card-description">
+              La tercera característica con sus ventajas únicas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Badges Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Badges</h2>
+      </div>
+
+      <div class="showcase-item">
+        <div class="showcase-content">
+          <span class="badge badge-blue">Nuevo</span>
+          <span class="badge badge-green">Activo</span>
+          <span class="badge badge-orange">Pendiente</span>
+          <span class="badge badge-red">Urgente</span>
+        </div>
+        <div class="code-snippet">.badge .badge-blue</div>
+      </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="section" id="forms">
+      <div class="section-header">
+        <div class="section-eyebrow">Formularios</div>
+        <h2 class="section-title">Inputs elegantes</h2>
+        <p class="section-description">
+          Campos de formulario con el estilo característico de Apple.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="showcase-item">
+          <div class="showcase-title">Text Inputs</div>
+          <div class="form-group">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" class="form-input" placeholder="Juan Pérez" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Correo electrónico</label>
+            <input
+              type="email"
+              class="form-input"
+              placeholder="juan@ejemplo.com"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea
+              class="form-input form-textarea"
+              placeholder="Escribe tu mensaje aquí..."
+            ></textarea>
+          </div>
+          <div class="code-snippet">.form-input<br />.form-textarea</div>
+        </div>
+
+        <div class="showcase-item">
+          <div class="showcase-title">Selects & Checkboxes</div>
+          <div class="form-group">
+            <label class="form-label">País</label>
+            <select class="form-input form-select">
+              <option>Selecciona un país</option>
+              <option>México</option>
+              <option>Estados Unidos</option>
+              <option>España</option>
+              <option>Argentina</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-checkbox">
+              <input type="checkbox" checked />
+              <span>Acepto los términos y condiciones</span>
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox" />
+              <span>Suscribirme al newsletter</span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-radio">
+              <input type="radio" name="plan" checked />
+              <span>Plan Básico</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="plan" />
+              <span>Plan Premium</span>
+            </label>
+          </div>
+          <div class="code-snippet">
+            .form-select<br />.form-checkbox<br />.form-radio
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Interactive Components -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Componentes interactivos</div>
+        <h2 class="section-title">Experiencias fluidas</h2>
+        <p class="section-description">
+          Componentes que responden de manera natural a la interacción del
+          usuario.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="showcase-item">
+          <div class="showcase-title">Progress Bars</div>
+          <div
+            style="display: flex; flex-direction: column; gap: var(--space-4)"
+          >
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: var(--space-2);
+                "
+              >
+                <span class="body-small" style="color: var(--gray-3)"
+                  >Descarga</span
+                >
+                <span class="body-small" style="color: var(--gray-3)">75%</span>
+              </div>
+              <div
+                style="
+                  height: 6px;
+                  background: var(--gray-6);
+                  border-radius: 100px;
+                  overflow: hidden;
+                "
+              >
+                <div
+                  style="
+                    height: 100%;
+                    width: 75%;
+                    background: var(--blue);
+                    border-radius: 100px;
+                    transition: width 0.3s ease;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: var(--space-2);
+                "
+              >
+                <span class="body-small" style="color: var(--gray-3)"
+                  >Instalación</span
+                >
+                <span class="body-small" style="color: var(--gray-3)">45%</span>
+              </div>
+              <div
+                style="
+                  height: 6px;
+                  background: var(--gray-6);
+                  border-radius: 100px;
+                  overflow: hidden;
+                "
+              >
+                <div
+                  style="
+                    height: 100%;
+                    width: 45%;
+                    background: var(--green);
+                    border-radius: 100px;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: var(--space-2);
+                "
+              >
+                <span class="body-small" style="color: var(--gray-3)"
+                  >Sincronización</span
+                >
+                <span class="body-small" style="color: var(--gray-3)">90%</span>
+              </div>
+              <div
+                style="
+                  height: 6px;
+                  background: var(--gray-6);
+                  border-radius: 100px;
+                  overflow: hidden;
+                "
+              >
+                <div
+                  style="
+                    height: 100%;
+                    width: 90%;
+                    background: var(--purple);
+                    border-radius: 100px;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-item">
+          <div class="showcase-title">Switches</div>
+          <div
+            style="display: flex; flex-direction: column; gap: var(--space-4)"
+          >
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+              "
+            >
+              <span>Notificaciones</span>
+              <div style="position: relative; width: 51px; height: 31px">
+                <input
+                  type="checkbox"
+                  checked
+                  style="opacity: 0; width: 0; height: 0; position: absolute"
+                />
+                <span
+                  style="
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: var(--green);
+                    border-radius: 100px;
+                    transition: 0.2s;
+                  "
+                ></span>
+                <span
+                  style="
+                    position: absolute;
+                    content: '';
+                    height: 27px;
+                    width: 27px;
+                    left: 2px;
+                    bottom: 2px;
+                    background: white;
+                    border-radius: 50%;
+                    transition: 0.2s;
+                    transform: translateX(20px);
+                  "
+                ></span>
+              </div>
+            </label>
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+              "
+            >
+              <span>Modo oscuro</span>
+              <div style="position: relative; width: 51px; height: 31px">
+                <input
+                  type="checkbox"
+                  style="opacity: 0; width: 0; height: 0; position: absolute"
+                />
+                <span
+                  style="
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: var(--gray-5);
+                    border-radius: 100px;
+                    transition: 0.2s;
+                  "
+                ></span>
+                <span
+                  style="
+                    position: absolute;
+                    content: '';
+                    height: 27px;
+                    width: 27px;
+                    left: 2px;
+                    bottom: 2px;
+                    background: white;
+                    border-radius: 50%;
+                    transition: 0.2s;
+                  "
+                ></span>
+              </div>
+            </label>
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+              "
+            >
+              <span>Sincronización automática</span>
+              <div style="position: relative; width: 51px; height: 31px">
+                <input
+                  type="checkbox"
+                  checked
+                  style="opacity: 0; width: 0; height: 0; position: absolute"
+                />
+                <span
+                  style="
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: var(--green);
+                    border-radius: 100px;
+                    transition: 0.2s;
+                  "
+                ></span>
+                <span
+                  style="
+                    position: absolute;
+                    content: '';
+                    height: 27px;
+                    width: 27px;
+                    left: 2px;
+                    bottom: 2px;
+                    background: white;
+                    border-radius: 50%;
+                    transition: 0.2s;
+                    transform: translateX(20px);
+                  "
+                ></span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- List Groups -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Listas</div>
+        <h2 class="section-title">List Groups</h2>
+        <p class="section-description">Listas organizadas al estilo iOS.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div
+          style="
+            background: var(--gray-7);
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+          "
+        >
+          <div
+            style="
+              background: #fff;
+              border-radius: var(--radius-md);
+              overflow: hidden;
+              border: 1px solid rgba(0, 0, 0, 0.06);
+            "
+          >
+            <div
+              style="
+                padding: var(--space-4);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: background 0.15s;
+              "
+            >
+              <div
+                style="display: flex; align-items: center; gap: var(--space-3)"
+              >
+                <div
+                  style="
+                    width: 32px;
+                    height: 32px;
+                    background: var(--blue);
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 600;
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-weight: 500">General</div>
+                  <div class="caption" style="color: var(--gray-3)">
+                    Configuración general
+                  </div>
+                </div>
+              </div>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                style="color: var(--gray-4)"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </div>
+
+            <div
+              style="
+                padding: var(--space-4);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+              "
+            >
+              <div
+                style="display: flex; align-items: center; gap: var(--space-3)"
+              >
+                <div
+                  style="
+                    width: 32px;
+                    height: 32px;
+                    background: var(--green);
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 600;
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-weight: 500">Notificaciones</div>
+                  <div class="caption" style="color: var(--gray-3)">
+                    Alertas y sonidos
+                  </div>
+                </div>
+              </div>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                style="color: var(--gray-4)"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </div>
+
+            <div
+              style="
+                padding: var(--space-4);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+              "
+            >
+              <div
+                style="display: flex; align-items: center; gap: var(--space-3)"
+              >
+                <div
+                  style="
+                    width: 32px;
+                    height: 32px;
+                    background: var(--purple);
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 600;
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-weight: 500">Privacidad</div>
+                  <div class="caption" style="color: var(--gray-3)">
+                    Seguridad y privacidad
+                  </div>
+                </div>
+              </div>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                style="color: var(--gray-4)"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            background: var(--gray-7);
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+          "
+        >
+          <div
+            style="
+              background: #fff;
+              border-radius: var(--radius-md);
+              overflow: hidden;
+              border: 1px solid rgba(0, 0, 0, 0.06);
+            "
+          >
+            <div
+              style="
+                padding: var(--space-4);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <span style="font-weight: 500">Wi-Fi</span>
+                <span
+                  class="body-small"
+                  style="color: var(--blue); font-weight: 500"
+                  >Mi Red</span
+                >
+              </div>
+            </div>
+
+            <div
+              style="
+                padding: var(--space-4);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <span style="font-weight: 500">Bluetooth</span>
+                <span class="body-small" style="color: var(--gray-3)"
+                  >Desactivado</span
+                >
+              </div>
+            </div>
+
+            <div
+              style="
+                padding: var(--space-4);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <span style="font-weight: 500">Datos móviles</span>
+                <span class="body-small" style="color: var(--gray-3)"
+                  >2.4 GB</span
+                >
+              </div>
+            </div>
+
+            <div style="padding: var(--space-4)">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <span style="font-weight: 500">Ahorro de batería</span>
+                <div style="position: relative; width: 51px; height: 31px">
+                  <input
+                    type="checkbox"
+                    style="opacity: 0; width: 0; height: 0; position: absolute"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      cursor: pointer;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      background: var(--gray-5);
+                      border-radius: 100px;
+                      transition: 0.2s;
+                    "
+                  ></span>
+                  <span
+                    style="
+                      position: absolute;
+                      content: '';
+                      height: 27px;
+                      width: 27px;
+                      left: 2px;
+                      bottom: 2px;
+                      background: white;
+                      border-radius: 50%;
+                      transition: 0.2s;
+                    "
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Alerts & Modals -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Mensajes</div>
+        <h2 class="section-title">Alerts & Notifications</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <div
+          style="
+            padding: var(--space-5);
+            background: rgba(0, 113, 227, 0.05);
+            border: 1px solid rgba(0, 113, 227, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            gap: var(--space-3);
+          "
+        >
+          <svg
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            style="color: var(--blue); flex-shrink: 0"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+          <div>
+            <div
+              style="
+                font-weight: 600;
+                margin-bottom: var(--space-1);
+                color: var(--blue);
+              "
+            >
+              Información
+            </div>
+            <div class="body-small" style="color: var(--gray-2)">
+              Tu sistema está actualizado a la última versión.
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            padding: var(--space-5);
+            background: rgba(48, 209, 88, 0.05);
+            border: 1px solid rgba(48, 209, 88, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            gap: var(--space-3);
+          "
+        >
+          <svg
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            style="color: var(--green); flex-shrink: 0"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+          <div>
+            <div
+              style="
+                font-weight: 600;
+                margin-bottom: var(--space-1);
+                color: var(--green);
+              "
+            >
+              Éxito
+            </div>
+            <div class="body-small" style="color: var(--gray-2)">
+              Los cambios se guardaron correctamente.
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            padding: var(--space-5);
+            background: rgba(255, 159, 10, 0.05);
+            border: 1px solid rgba(255, 159, 10, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            gap: var(--space-3);
+          "
+        >
+          <svg
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            style="color: var(--orange); flex-shrink: 0"
+          >
+            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+          </svg>
+          <div>
+            <div
+              style="
+                font-weight: 600;
+                margin-bottom: var(--space-1);
+                color: var(--orange);
+              "
+            >
+              Advertencia
+            </div>
+            <div class="body-small" style="color: var(--gray-2)">
+              Tu almacenamiento está casi lleno.
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            padding: var(--space-5);
+            background: rgba(255, 69, 58, 0.05);
+            border: 1px solid rgba(255, 69, 58, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            gap: var(--space-3);
+          "
+        >
+          <svg
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            style="color: var(--red); flex-shrink: 0"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+          <div>
+            <div
+              style="
+                font-weight: 600;
+                margin-bottom: var(--space-1);
+                color: var(--red);
+              "
+            >
+              Error
+            </div>
+            <div class="body-small" style="color: var(--gray-2)">
+              No se pudo conectar al servidor.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background: var(--gray-7);
+        padding: var(--space-8) var(--space-5);
+        text-align: center;
+      "
+    >
+      <div style="max-width: 980px; margin: 0 auto">
+        <h3 class="headline-small" style="margin-bottom: var(--space-3)">
+          Comienza a crear
+        </h3>
+        <p
+          class="body-medium"
+          style="
+            color: var(--gray-3);
+            margin-bottom: var(--space-6);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Un sistema de diseño completo, listo para usar en tu próximo proyecto.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            margin-bottom: var(--space-8);
+            flex-wrap: wrap;
+          "
+        >
+          <button class="btn btn-primary btn-large">Descargar CSS</button>
+          <button class="btn btn-secondary btn-large">Ver en GitHub</button>
+        </div>
+        <div
+          class="divider"
+          style="margin: var(--space-8) auto; max-width: 600px"
+        ></div>
+        <p class="caption" style="color: var(--gray-4)">
+          Diseñado con <span style="color: var(--red)">♥</span> inspirado en
+          Apple
+        </p>
+        <p
+          class="caption"
+          style="color: var(--gray-4); margin-top: var(--space-2)"
+        >
+          © 2024 Design System. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".card, .showcase-item").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

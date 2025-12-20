@@ -388,7 +388,7 @@
         </div>
 
         <!-- Components Grid -->
-        <div style="--grid; --cols:repeat(2, 1fr); --gap:var(--sp-6)">
+        <div style="--grid: 1; --cols: repeat(2, 1fr); --gap: var(--sp-6)">
           <!-- Buttons -->
           <div class="card" style="--p: var(--sp-6)">
             <h3
@@ -475,7 +475,7 @@
             >
               Alerts
             </h3>
-            <div style="--flex; --flex-col; --gap:var(--sp-3)">
+            <div style="--flex: 1; --flex-col: 1; --gap: var(--sp-3)">
               <div class="alert alert-info">
                 <span>ℹ️</span>
                 <span>Información importante</span>
@@ -598,14 +598,24 @@
         </div>
 
         <!-- Interactive Cards -->
-        <div style="--grid; --cols:repeat(3, 1fr); --gap:var(--sp-5)">
+        <div style="--grid: 1; --cols: repeat(3, 1fr); --gap: var(--sp-5)">
           <div
             class="card card-interactive"
             style="--p: var(--sp-6)"
             onclick="showAlert('info')"
           >
             <div
-              style="--w:48px; --h:48px; --bg:var(--blue-light); --br:var(--radius-md); --flex; --items:center; --justify:center; --mb:var(--sp-4); --fs:var(--fs-2xl)"
+              style="
+                --w: 48px;
+                --h: 48px;
+                --bg: var(--blue-light);
+                --br: var(--radius-md);
+                --flex: 1;
+                --items: center;
+                --justify: center;
+                --mb: var(--sp-4);
+                --fs: var(--fs-2xl);
+              "
             >
               💡
             </div>
@@ -629,7 +639,17 @@
             onclick="openModal()"
           >
             <div
-              style="--w:48px; --h:48px; --bg:var(--purple-light); --br:var(--radius-md); --flex; --items:center; --justify:center; --mb:var(--sp-4); --fs:var(--fs-2xl)"
+              style="
+                --w: 48px;
+                --h: 48px;
+                --bg: var(--purple-light);
+                --br: var(--radius-md);
+                --flex: 1;
+                --items: center;
+                --justify: center;
+                --mb: var(--sp-4);
+                --fs: var(--fs-2xl);
+              "
             >
               🪟
             </div>
@@ -653,7 +673,17 @@
             onclick="toggleAccordion()"
           >
             <div
-              style="--w:48px; --h:48px; --bg:var(--orange-light); --br:var(--radius-md); --flex; --items:center; --justify:center; --mb:var(--sp-4); --fs:var(--fs-2xl)"
+              style="
+                --w: 48px;
+                --h: 48px;
+                --bg: var(--orange-light);
+                --br: var(--radius-md);
+                --flex: 1;
+                --items: center;
+                --justify: center;
+                --mb: var(--sp-4);
+                --fs: var(--fs-2xl);
+              "
             >
               📋
             </div>
@@ -688,7 +718,7 @@
         <div
           class="accordion"
           id="demoAccordion"
-          style="--mt:var(--sp-8); --hidden"
+          style="--mt: var(--sp-8); --hidden: 1"
         >
           <div class="accordion-item">
             <button class="accordion-header">
@@ -732,7 +762,12 @@
         </p>
 
         <div
-          style="--flex; --gap:var(--sp-4); --justify:center; --flex-wrap:wrap"
+          style="
+            --flex: 1;
+            --gap: var(--sp-4);
+            --justify: center;
+            --flex-wrap: wrap;
+          "
         >
           <button class="btn btn-primary btn-lg">Descargar ahora</button>
           <button
